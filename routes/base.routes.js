@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 
-const User = require('../models/User.model')
+const User = require('../models/user.model')
 
 const bcrypt = require('bcrypt')
 const bcryptSalt = 10
@@ -16,18 +16,41 @@ const registerUser = () => {
 
         const { username, email, password } = req.body
 
-        const salt = bcrypt.genSaltSync(bcryptSalt)
+        User.find({ username })
+            .then(matchedUser => {
 
-        const hash = bcrypt.hashSync(password, salt)
+                if (matchedUser.length) {
 
-        User.create({ username, email, password: hash })
-            .then(() => {
-                console.log(req.body)
-                delete req.body.email
-                console.log(req.body)
-                next()
+                    res.render('auth/register', { errorMessage: 'This username is already in use' })
+
+                    return
+                }
+
+                User.find({ email })
+                    .then(matchedUser => {
+
+                        if (matchedUser.length) {
+
+                            res.render('auth/register', { errorMessage: 'This email is already in use' })
+
+                            return
+                        }
+
+                        const salt = bcrypt.genSaltSync(bcryptSalt)
+
+                        const hash = bcrypt.hashSync(password, salt)
+
+                        User.create({ username, email, password: hash })
+                            .then(() => {
+                                console.log(req.body)
+                                delete req.body.email
+                                console.log(req.body)
+                                next()
+                            })
+                    })
             })
             .catch(err => next(err))
+
     }
 
 }
@@ -51,7 +74,7 @@ router.get('/register', (req, res, next) => {
 router.post("/register", registerUser(), passport.authenticate("local", {
 
     successRedirect: `/home`,
-    failureRedirect: "/fail",
+    failureRedirect: "/register",
     failureFlash: true,
     passReqToCallback: true
 }))
@@ -60,18 +83,11 @@ router.post("/register", registerUser(), passport.authenticate("local", {
 // Login
 router.get('/login', (req, res, next) => res.render('auth/login'))
 
-router.get('/fail', (req, res, next) => {
-
-    const erroMessage = req.flash("error")
-
-    req.user ? res.redirect('/home') : res.send(erroMessage)
-})
-
 // Login (post)
 router.post("/login", passport.authenticate("local", {
 
     successRedirect: `/home`,
-    failureRedirect: "/fail",
+    failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true
 }))
@@ -85,7 +101,9 @@ router.get('/logout', (req, res, next) => {
 })
 
 // User home
-router.get('/home', isLoggedIn, (req, res, next) => res.render('user/index'))
+router.get('/home', isLoggedIn, (req, res, next) => res.render('user/profile', req.user))
 
+
+// router.get('/:username', isLoggedIn, (req, res, next) => res.render('user/profile', req.user))
 
 module.exports = router

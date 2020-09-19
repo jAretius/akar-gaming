@@ -4,7 +4,7 @@ const passport = require("passport")
 const LocalStrategy = require("passport-local").Strategy
 const flash = require("connect-flash") // error handling
 
-const User = require('../models/User.model')
+const User = require('../models/user.model')
 
 module.exports = app => {
 
