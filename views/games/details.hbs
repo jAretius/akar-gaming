@@ -1,0 +1,22 @@
+<div class="game-details">
+    <h2>{{title}}</h2>
+
+    <div class="game-hero">
+        <img src="{{image}}" alt="{{title}} image">
+        <div class="game-hero-container">
+            <article>{{description}}</article>
+            <p>Price: <span>{{price}}</span></p>
+            <div class="game-devs">
+                <p>{{company}}</p>
+                <ul>
+                    {{#each directors}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <iframe width="560" height="315" src="{{trailer}}" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"allowfullscreen></iframe>
+
+</div>
