@@ -1,0 +1,11 @@
+<h2>Take a look at the game developing companies:</h2>
+
+<ul class="companies-list">
+    {{#each companies}}
+    <li class="companies-li">
+        <h3>{{name}}</h3>
+        <a href="/companies/{{_id}}">Details</a>
+    </li>
+    <hr>
+    {{/each}}
+</ul>
