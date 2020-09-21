@@ -10,6 +10,10 @@
 
                     <img src={{profileImage}} alt="profile image of {{username}}">
 
+                    <a class='settings' href="/users/settings">
+                        <figure></figure>
+                    </a>
+
                 </div>
 
                 <div class="username col">
@@ -33,12 +37,12 @@
                 </a>
 
                 <a class="followers d-flex flex-column justify-content-center align-items-center" href='#'>
-                    <h2>0</h2>
+                    <h2>{{social.followers}}</h2>
                     <p>Followers</p>
                 </a>
 
                 <a class="following d-flex flex-column justify-content-center align-items-center" href='#'>
-                    <h2>1</h2>
+                    <h2>{{social.following}}</h2>
                     <p>Following</p>
                 </a>
 

@@ -16,6 +16,7 @@ const registerUser = () => {
 
         const { username, email, password } = req.body
 
+        // Checks if username is available
         User.find({ username })
             .then(matchedUser => {
 
@@ -26,6 +27,7 @@ const registerUser = () => {
                     return
                 }
 
+                // Checks if email is available
                 User.find({ email })
                     .then(matchedUser => {
 
@@ -59,21 +61,21 @@ const registerUser = () => {
 const isLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.redirect('/login')
 
 // Endpoints
-router.get('/', (req, res) => req.user ? res.redirect('/home') : res.render('index'))
+router.get('/', (req, res) => req.user ? res.redirect('/users/home') : res.render('index'))
 
 // AUTH
 
 // Register
 router.get('/register', (req, res, next) => {
 
-    req.user ? res.redirect('/home') : res.render('auth/register')
+    req.user ? res.redirect('/users/home') : res.render('auth/register')
 
 })
 
 // Register (post)
 router.post("/register", registerUser(), passport.authenticate("local", {
 
-    successRedirect: `/home`,
+    successRedirect: `/users/home`,
     failureRedirect: "/register",
     failureFlash: true,
     passReqToCallback: true
@@ -86,7 +88,7 @@ router.get('/login', (req, res, next) => res.render('auth/login'))
 // Login (post)
 router.post("/login", passport.authenticate("local", {
 
-    successRedirect: `/home`,
+    successRedirect: `/users/home`,
     failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true
@@ -99,11 +101,5 @@ router.get('/logout', (req, res, next) => {
     res.redirect('/')
 
 })
-
-// User home
-router.get('/home', isLoggedIn, (req, res, next) => res.render('user/profile', req.user))
-
-
-// router.get('/:username', isLoggedIn, (req, res, next) => res.render('user/profile', req.user))
 
 module.exports = router
