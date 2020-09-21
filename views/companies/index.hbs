@@ -1,11 +1,13 @@
-<h2>Take a look at the game developing companies:</h2>
+<div class="company-index">
+    <h2>Take a look at the game developing companies:</h2>
 
-<ul class="companies-list">
-    {{#each companies}}
-    <li class="companies-li">
-        <h3>{{name}}</h3>
-        <a href="/companies/{{_id}}">Details</a>
-    </li>
-    <hr>
-    {{/each}}
-</ul>
+    <ul class="company-list">
+        {{#each companies}}
+        <li class="company-li">
+            <h3>{{name}}</h3>
+            <a class="btn btn-dark" href="/companies/{{_id}}">Details</a>
+        </li>
+        <hr>
+        {{/each}}
+    </ul>
+</div>

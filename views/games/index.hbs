@@ -1,11 +1,13 @@
-<h2>Here are all of our games:</h2>
+<div class="game-list-view">
+    <h2>Here are all of our games:</h2>
 
-<ul class="index-list">
-    {{#each games}}
-        <li class="index-li">
-            <a href="/games/{{_id}}"><img src="{{image}}" alt="{{title}} image"></a>
-            <h3>{{title}}</h3>
-        </li>
-        <hr>
-    {{/each}}
-</ul>
+    <ul class="game-list">
+        {{#each games}}
+            <li class="game-li">
+                <a href="/games/{{_id}}"><img src="{{image}}" alt="{{title}} image"></a>
+                <h3>{{title}}</h3>
+            </li>
+            <hr>
+        {{/each}}
+    </ul>
+</div>
