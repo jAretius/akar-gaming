@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema
 
 const gameSchema = new mongoose.Schema({
     title: {
@@ -23,16 +24,15 @@ const gameSchema = new mongoose.Schema({
         required: true
     },
     company: {
-        type: String
-        // type: Schema.Types.ObjectId,
-        // ref: "Company"
+        type: Schema.Types.ObjectId,
+        ref: "Company"
     },
     release: {
         type: Date,
     },
     platforms: {
         type: [String],
-        enum: ["PSX", "PS2", "PS3", "PS4", "PS5", "XBOX", "XBOX 360", "XBOX ONE", "XBOX SERIES", "NINTENDO SWITCH","PC"]
+        enum: ["PS4", "PS5", "XBOX ONE", "XBOX SERIES", "NINTENDO SWITCH","PC"]
     },
     price: {
         type: Number,

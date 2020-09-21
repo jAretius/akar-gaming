@@ -1,0 +1,91 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <h1 style="font-weight: 100">New Game</h1>
+        </div>
+
+        <div class="col-md-6">
+
+            <form action="/games/new" method="post">
+                <div class="form-group">
+                    <label for="title-input">Title</label>
+                    <input name="title" type="text" class="form-control" id="title-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="image-input">Image Url</label>
+                    <input name="image" type="text" class="form-control" id="image-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="trailer-input">Trailer Embed Url</label>
+                    <input name="trailer" type="text" class="form-control" id="trailer-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="description-input">Description</label>
+                    <input name="description" type="text" class="form-control" id="description-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="directors-input">Directors</label>
+                    <input name="directors" type="text" class="form-control" id="directors-input">
+                </div>
+                
+                <div class="form-group">
+                    <label for="company-list">Company:</label>
+                    <select name="company" class="form-control" id="company-list">
+                        <option>Select</option>
+                        {{#each companies}}
+                            <option value="{{_id}}">{{name}}</option>
+                        {{/each}}
+                
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date-input">Release Date</label>
+                    <input name="date" type="date" class="form-control" id="date-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="price-input">Price</label>
+                    <input name="price" type="number" class="form-control" id="price-input">
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="platforms-input" value="PS4" name='platforms'>
+                    <label class="form-check-label" for="platforms-input">PS4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="platforms-input" value="PS5" name='platforms'>
+                    <label class="form-check-label" for="platforms-input">PS5</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="platforms-input" value="XBOX ONE" name='platforms'>
+                    <label class="form-check-label" for="platforms-input">Xbox One</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="platforms-input" value="XBOX SERIES" name='platforms'>
+                    <label class="form-check-label" for="platforms-input">Xbox Series</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="platforms-input" value="NINTENDO SWITCH" name='platforms'>
+                    <label class="form-check-label" for="platforms-input">N. Switch</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="platforms-input" value="PC" name='platforms'>
+                    <label class="form-check-label" for="platforms-input">PC</label>
+                </div>
+                <br><br>
+
+                <button type="submit" class="btn btn-dark">Create</button>
+                <a href="/games" class="btn btn-dark">Go Back</a>
+
+            </form>
+        </div>
+
+    </div>
+</div>

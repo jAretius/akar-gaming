@@ -1,10 +1,14 @@
 <div class="company-details">
-    <h2>{{name}}</h2>
+    <h2>{{name}}</h2><br>
+    <div class="company-details-container">
+        <article>{{description}}</article><br>
+        <img src="{{logo}}" alt="{{name}} logo"><br><br>
+        <a href="{{website}}" class="btn btn-dark">Compny's website</a>
+    </div><br><br>
 
-    <div class="game-hero">
-        <img src="{{logo}}" alt="{{name}} logo">
-        <div class="game-hero-container">
-            <article>{{description}}</article>
-        </div>
+    <div class="buttons">
+        <a href="/companies/edit?id={{_id}}" class="btn btn-dark">Update</a>
+        <a href="/companies/delete?id={{_id}}" class="btn btn-dark">Delete</a>
+        <a href="/companies" class="btn btn-dark">Go Back</a>
     </div>
 </div>

@@ -25,6 +25,12 @@ const companies = [
         logo: "https://thumbnails.pcgamingwiki.com/c/c8/Developer_-_Deck13_Interactive_-_logo.png/300px-Developer_-_Deck13_Interactive_-_logo.png",
         description: "Deck13 Interactive is one of Germany’s leading developers with more than 18 years of experience. With over 60 employees located in Frankfurt, Deck13 Interactive has developed upwards of 20 titles, including major releases such as The Surge and Lords of the Fallen. Currently the team is working on The Surge 2 and a new unannounced IP.",
         website: "https://www.deck13.com/",
+    },
+    {
+        name: "Square Enix",
+        logo: "https://www.square-enix.com/img/header/logo.jpg",
+        description: "The Square Enix Holdings Company, Ltd.[a] is a Japanese video game holding company, best known for its Final Fantasy, Dragon Quest, and Kingdom Hearts role-playing video game franchises, among numerous others. Several of them have sold over 10 million copies worldwide, with the Final Fantasy franchise alone selling 144 million, the Dragon Quest franchise selling 78 million and the Kingdom Hearts franchise selling 30 million. The Square Enix headquarters are in the Shinjuku Eastside Square Building in Shinjuku, Tokyo. Outside of video game publishing and development which the group is more known, Square Enix also is in the business of merchandise, amusement and publication of manga. The company employs some 4600 workers worldwide through its base operations and subsidiaries.",
+        website: "https://www.square-enix.com/",
     }
 ]
  

@@ -140,4 +140,70 @@ footer {
   main .profile .body .collection {
     width: 320px; } }
 
+.game-list-view {
+  color: white; }
+
+.game-li {
+  width: 40%;
+  padding: 10px;
+  display: flex;
+  border: white solid 2px;
+  border-radius: 10px; }
+
+.game-li h3 {
+  margin-left: 5px;
+  font-size: 4em; }
+
+.game-li img {
+  width: 200px; }
+
+.game-details {
+  color: white;
+  margin: 20px; }
+
+.game-details iframe {
+  width: 1000px;
+  height: 500px; }
+
+.game-hero {
+  display: flex;
+  margin-bottom: 20px; }
+
+.game-hero img {
+  width: 300px;
+  margin-right: 20px; }
+
+.company-index {
+  color: white; }
+
+.company-li {
+  list-style-type: none; }
+
+.company-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white; }
+
+.company-details h2 {
+  font-size: 5em;
+  font-weight: bold; }
+
+.company-details a {
+  margin-bottom: 5px; }
+
+.company-details img {
+  width: 500px; }
+
+.company-details article {
+  width: 700px; }
+
+.company-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: white solid 2px;
+  border-radius: 20px;
+  padding: 25px; }
+
 /*# sourceMappingURL=style.css.map */
