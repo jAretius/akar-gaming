@@ -6,13 +6,15 @@ const userSchema = new Schema({
     username: {
 
         type: String,
-        required: true
+        required: true,
+        unique: true
 
     },
     email: {
 
         type: String,
-        required: true
+        required: true,
+        unique: true
 
     },
     password: {
@@ -45,6 +47,17 @@ const userSchema = new Schema({
             enum: ['Want to Play', 'Playing', 'Beaten', 'Completed', 'Shelved', 'Abandoned']
         }
 
+    },
+    social: {
+
+        followers: {
+            type: Number,
+            default: 0
+        },
+        following: {
+            type: Number,
+            default: 0
+        }
     }
 
 }, { timestamps: true })
