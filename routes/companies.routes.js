@@ -56,4 +56,13 @@ router.get("/:companyId", (req, res, next) => {
         .catch(err => next(err))
 })
 
+//Company articles Index
+router.get("/:companyId/articles", (req, res, next) => {
+    const id = req.params.companyId
+
+    Article.find({ companyId: id })
+        .then(() => res.render("companies/articleIndex"))
+        .catch(err => next(new Error(err)))
+})
+
 module.exports = router

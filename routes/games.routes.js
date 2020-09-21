@@ -3,6 +3,7 @@ const router = express.Router()
 
 const Game = require("../models/game.model")
 const Company = require("../models/company.model")
+const Article = require("../models/article.model")
 
 //Games list
 router.get("/", (req, res, next) => {
@@ -62,6 +63,32 @@ router.get("/:gameId", (req, res, next) => {
     Game.findById(id)
         .populate("company")
         .then(gameDetails => res.render("games/details", gameDetails))
+        .catch(err => next(new Error(err)))
+})
+
+//Game reviews Index
+router.get("/:gameId/articles", (req, res, next) => {
+    const id = req.params.gameId
+
+    Article.find({ gameId: id })
+        .then((articles) => res.render("games/articleIndex", {articles}))
+        .catch(err => next(new Error(err)))
+})
+
+//Game new Article
+router.get("/:gameId/newArticle", (req, res, next) => {
+    const id = req.params.gameId
+
+    Game.findById(id)
+        .then(game => res.render("games/newArticle", { game }))
+        .catch(err => next(new Error(err)))
+})
+
+router.post("/:gameId/newArticle", (req, res, next) => {
+    const { text, gameId, type } = req.body
+    
+    Article.create({ text, gameId, type })
+        .then(() => res.redirect("/games"))
         .catch(err => next(new Error(err)))
 })
 
