@@ -316,23 +316,8 @@ main {
           }       
       }
     }    
-  }
+  }  
 }
-
-footer{
-
-  background-color: rgb(42, 46, 53);
-
-  height: 70px;
-
-  position: fixed;
-
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-}
-
 
 @media (min-width: 768px) {
 
@@ -375,38 +360,45 @@ footer{
 //Games index Styles
 .game-list-view {
   color: white;
-}
-.game-li {
-  width: 40%;
-  padding: 10px;
-  display: flex;
-  border: white solid 2px;
-  border-radius: 10px;
-}
-.game-li h3 {
-  margin-left: 5px;
-  font-size: 4em;
-}
-.game-li img {
-  width: 200px;
+
+  .game-li {
+    width: 40%;
+    padding: 10px;
+    display: flex;
+    border: white solid 2px;
+    border-radius: 10px;
+  
+    h3{
+  
+      margin-left: 5px;
+      font-size: 4em;
+  
+    }
+  
+    img {
+      width: 200px;
+    }
+  }
 }
 
 //Game details Styles
 .game-details {
   color: white;
   margin: 20px;
-}
-.game-details iframe {
-  width: 1000px;
-  height: 500px;
+  
+  iframe {
+    width: 1000px;
+    height: 500px;
+  }
 }
 .game-hero {
   display: flex;
   margin-bottom: 20px;
-}
-.game-hero img {
-  width: 300px;
-  margin-right: 20px;
+
+  img {
+    width: 300px;
+    margin-right: 20px;
+  }
 }
 
 //Company index Styles

@@ -149,13 +149,11 @@ footer {
   display: flex;
   border: white solid 2px;
   border-radius: 10px; }
-
-.game-li h3 {
-  margin-left: 5px;
-  font-size: 4em; }
-
-.game-li img {
-  width: 200px; }
+  .game-li h3 {
+    margin-left: 5px;
+    font-size: 4em; }
+  .game-li img {
+    width: 200px; }
 
 .game-details {
   color: white;
