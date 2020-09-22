@@ -34,25 +34,27 @@
 
                     <h2>{{matchedUser.username}}</h2>
 
-                    {{#unless isOwner}}
-
-                    <a href="/users/follow/{{matchedUser.id}}" class="follow-btn">
-
-                        <div class="d-flex justify-content-center align-items-center">
-
-                            <p>follow</p>
-
-                        </div>
-
-                    </a>
-
-                    {{/unless}}
-
                     <p>@{{matchedUser.username}}</p>
 
                 </div>
 
             </div>
+
+            {{#unless isOwner}}
+
+            <form action='/users/follow/{{matchedUser.id}}' method='post'>
+
+                <input type='hidden' value={{matchedUser.username}} name='username'>
+
+                <button type='submit' class='follow-btn'>
+
+                    <p>follow</p>
+
+                </button>
+
+            </form>
+
+            {{/unless}}
 
         </div>
 
@@ -66,12 +68,12 @@
                 </a>
 
                 <a class="followers d-flex flex-column justify-content-center align-items-center" href='#'>
-                    <h2>{{matchedUser.social.followers}}</h2>
+                    <h2>0</h2>
                     <p>Followers</p>
                 </a>
 
                 <a class="following d-flex flex-column justify-content-center align-items-center" href='#'>
-                    <h2>{{matchedUser.social.following}}</h2>
+                    <h2>{{matchedUser.following.length}}</h2>
                     <p>Following</p>
                 </a>
 
@@ -135,3 +137,5 @@
     </div>
 
 </section>
+
+<script src="/javascripts/follow.js"></script>

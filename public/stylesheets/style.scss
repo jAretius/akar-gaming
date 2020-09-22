@@ -113,6 +113,10 @@ main {
     .header{
   
       .user-info{
+
+        .row{
+
+        }
   
         .image{
           
@@ -147,7 +151,49 @@ main {
               border-radius: 50%;
             }
           }          
-        }  
+        }
+        
+        form{
+
+          padding: 20px 0;
+
+            .follow-btn{  
+
+              outline: none;
+
+              display: block;
+              margin: 0 auto;
+  
+              width: 100px;
+              height: 40px;
+  
+              border: solid 1px lime;
+              border-radius: 25px; 
+              
+              background-color: $main-color;
+              color: lime;
+              
+              transition: all;
+              transition-duration: .5s;
+  
+              p{
+                color: lime;
+                font-size: 1.2em;
+                font-weight: 900; 
+              }
+            }
+          }
+
+
+          .follow-btn:hover{
+
+            background-color: lime;
+
+            p{
+              color: $main-color;
+            }
+
+          }
           
         .username {
   
@@ -163,45 +209,7 @@ main {
 
             display: inline-block;
 
-          }
-
-          .follow-btn{
-
-            display: inline-block;
-
-            width: 100px;
-            height: 40px;
-
-            margin-left: 20px;
-
-            border: solid 1px lime;
-            border-radius: 25px;  
-            
-            transition: all;
-            transition-duration: .5s;
-
-            div{
-
-              height: 100%;
-              font-weight: 100%;
-
-              p{
-                color: lime;
-                font-size: 1.2em;
-                font-weight: 900; 
-              }
-            }
-          }
-
-          .follow-btn:hover{
-
-            background-color: lime;
-
-            p{
-              color: $main-color;
-            }
-
-          }
+          }          
         }
       }
   
@@ -421,7 +429,18 @@ main {
             display: inline;
             width: auto;
     
-          }      
+          }
+          
+          form{
+
+            .follow-btn{
+
+              display: inline-block;
+              margin-left: 5px;
+              
+            }
+
+          }
           
         }
   

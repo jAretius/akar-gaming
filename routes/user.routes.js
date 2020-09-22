@@ -14,9 +14,11 @@ router.get('/home', (req, res) => res.redirect(`/users/${req.user.username}`))
 
 // DELETE (For deleting the user)
 
-router.get('/follow/:id', isLoggedIn, (req, res, next) => {
+router.post('/follow/:id', isLoggedIn, (req, res, next) => {
 
-    User.findByIdAndUpdate(req.user.id,)
+    User.findByIdAndUpdate(req.user.id, { $push: { following: req.params.id } })
+        .then(() => res.redirect(`/users/${req.body.username}`))
+        .catch(err => next(err))
 
 })
 
@@ -27,11 +29,7 @@ router.get('/:username/settings', isLoggedIn, (req, res) => res.render('user/set
 
 router.post('/:id/settings', isLoggedIn, (req, res, next) => {
 
-    console.log('Estamos en el post de settings')
-
     const { username, email } = req.body
-
-    console.log(`username es:`, req.body.username)
 
     User.find({ $and: [{ username: { $ne: req.user.username } }, { username }] })
         .then(userMatch => {

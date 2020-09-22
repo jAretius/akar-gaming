@@ -12,7 +12,10 @@ module.exports = app => {
     app.use(session({
         secret: "passport-app",
         resave: true,
-        saveUninitialized: true
+        saveUninitialized: true,
+        cookie: {
+            maxAge: 1800000
+        }
     }))
 
     // User serialize and deserialize

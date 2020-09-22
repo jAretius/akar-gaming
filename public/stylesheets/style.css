@@ -60,32 +60,34 @@ main {
           background-color: #040a1b;
           border: solid 1px lime;
           border-radius: 50%; }
+    main .profile .header .user-info form {
+      padding: 20px 0; }
+      main .profile .header .user-info form .follow-btn {
+        outline: none;
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        height: 40px;
+        border: solid 1px lime;
+        border-radius: 25px;
+        background-color: #040a1b;
+        color: lime;
+        transition: all;
+        transition-duration: .5s; }
+        main .profile .header .user-info form .follow-btn p {
+          color: lime;
+          font-size: 1.2em;
+          font-weight: 900; }
+    main .profile .header .user-info .follow-btn:hover {
+      background-color: lime; }
+      main .profile .header .user-info .follow-btn:hover p {
+        color: #040a1b; }
     main .profile .header .user-info .username {
       text-align: center; }
       main .profile .header .user-info .username p {
         font-size: 1.3em; }
       main .profile .header .user-info .username h2 {
         display: inline-block; }
-      main .profile .header .user-info .username .follow-btn {
-        display: inline-block;
-        width: 100px;
-        height: 40px;
-        margin-left: 20px;
-        border: solid 1px lime;
-        border-radius: 25px;
-        transition: all;
-        transition-duration: .5s; }
-        main .profile .header .user-info .username .follow-btn div {
-          height: 100%;
-          font-weight: 100%; }
-          main .profile .header .user-info .username .follow-btn div p {
-            color: lime;
-            font-size: 1.2em;
-            font-weight: 900; }
-      main .profile .header .user-info .username .follow-btn:hover {
-        background-color: lime; }
-        main .profile .header .user-info .username .follow-btn:hover p {
-          color: #040a1b; }
     main .profile .header .social .row {
       height: 100%; }
       main .profile .header .social .row a {
@@ -170,6 +172,9 @@ main {
   main .profile .header .user-info .image {
     display: inline;
     width: auto; }
+  main .profile .header .user-info form .follow-btn {
+    display: inline-block;
+    margin-left: 5px; }
   main .profile .body .collection {
     width: 320px; } }
 
