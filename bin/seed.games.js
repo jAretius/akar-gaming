@@ -2,11 +2,8 @@ const mongoose = require('mongoose');
 const Game = require('../models/game.model');
 const ObjectId = mongoose.Types.ObjectId
 
- const dbName = 'akar';
- mongoose.connect(`mongodb://localhost/${dbName}`, {
-     useNewUrlParser: true,
-     useUnifiedTopology: true
- })
+const dbName = 'akar';
+mongoose.connect(`mongodb+srv://Popinator:1234@cluster0.7ya48.mongodb.net/test`)
 
 const games = [
     {
@@ -28,7 +25,7 @@ const games = [
         directors: ["Hidetaka Miyazaki"],
         company: ObjectId("5f664d176b10122f8dff192a"),
         release: Date.parse("May 25, 2018"),
-        platforms: ["PS3", "PS4", "XBOX 360", "XBOX ONE", "PC"],
+        platforms: ["PS4", "XBOX ONE", "PC"],
         price: 29.95,
     },
     {
@@ -130,7 +127,7 @@ const games = [
         platforms: ["PS4"],
         price: 59.95,
     },
- ]
+]
 
 
 Game.create(games)

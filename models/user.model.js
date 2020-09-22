@@ -46,19 +46,12 @@ const userSchema = new Schema({
             type: [String],
             enum: ['Want to Play', 'Playing', 'Beaten', 'Completed', 'Shelved', 'Abandoned']
         }
-
     },
-    social: {
+    following: {
 
-        followers: {
-            type: Number,
-            default: 0
-        },
-        following: {
-            type: Number,
-            default: 0
-        }
-    }
+        type: [Schema.Types.ObjectId],
+        ref: 'User'
+    },
 
 }, { timestamps: true })
 
