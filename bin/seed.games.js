@@ -28,7 +28,7 @@ const games = [
         directors: ["Hidetaka Miyazaki"],
         company: ObjectId("5f664d176b10122f8dff192a"),
         release: Date.parse("May 25, 2018"),
-        platforms: ["PS3", "PS4", "XBOX 360", "XBOX ONE", "PC"],
+        platforms: ["PS4", "XBOX ONE", "PC"],
         price: 29.95,
     },
     {
@@ -67,7 +67,7 @@ const games = [
     {
         title: "The Surge",
         image: "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co1odu.jpg",
-        trailer: "www.youtube.com/embed/uBBB-m9peMQ",
+        trailer: "https://www.youtube.com/embed/uBBB-m9peMQ",
         description: "The Surge is a sci-fi spin on Dark Souls, from the Lords of the Fallen team. Set in a heavily dystopian future as Earth nears the end of its life, those who remain in the overpopulated cities must work to survive as social programs have become saturated by an aging population and increasing environmental diseases. The world of The Surge offers a very grim vision of the future, where the evolution of our technology, our society and our relation with the environment led to a decadent state of the Human civilization. Fitted with an advanced CREO exo-suit, balancing your core power against your implants and exo-suit upgrades will allow you to specialize in a huge variety of combat styles, thanks to the almost limitless combinations of addons and dozens of make-shift weapons salvaged from the industrial complex. Finely tune your gear to match your playstyle, and to best suit the challenge ahead. The Metroidvanian levels open up as your core power increases, allowing you to over-charge doors previously too strong for your suit to damage and opening new pathways for you to explore. The CREO facility is vast, and if you want to find and craft the best equipment and weapons, you will need to search every area for secrets and hidden items. The Surge features innovative combat mechanics, allowing you to target individual limbs and dismember the exo-suit add-on or weapon you want to acquire. Collecting tech-scrap and blueprints, you will be able to return to the Operation Center to level up and craft new exo-suit addons and weapons salvaged throughout the level. The most powerful of these can be acquired from the world’s gigantic, industrial bosses. Most of what you encounter in The Surge was never originally designed to kill you, and most of the items you loot and craft were never meant for combat. However, the combined strength of the exo-suit and near-future technology of CREO mean that anything from fork-lifting addons to laser cutters can be used as lethal weapons for diving deeper into the facility.",
         directors: ["Jan Klose"],
         company: ObjectId("5f664d176b10122f8dff192c"),

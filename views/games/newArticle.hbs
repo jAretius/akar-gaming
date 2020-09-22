@@ -1,0 +1,40 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <h1 style="font-weight: 100">New Game</h1>
+        </div>
+
+        <div class="col-md-6">
+
+            <form action="/games/{{game._id}}/newArticle" method="post">
+                <div class="form-group">
+                    <label for="text-input">Write here:</label>
+                    <input name="text" type="text" class="form-control" id="text-input">
+                </div>
+
+                <div class="form-group">
+                    {{!-- <input name="userId" type="hidden" class="form-control" id="userId-input" value=""> --}}
+                    <input name="gameId" type="hidden" class="form-control" id="gameId-input" value="{{game._id}}">
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="type-input" value="REVIEW" name='type'>
+                    <label class="form-check-label" for="type-input">Review</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="type-input" value="NEWS" name='type'>
+                    <label class="form-check-label" for="type-input">News</label>
+                </div>
+                
+                <br><br>
+
+                <button type="submit" class="btn btn-dark">Create</button>
+                <a href="/games/{{id}}" class="btn btn-dark">Go Back</a>
+
+            </form>
+        </div>
+
+    </div>
+</div>
