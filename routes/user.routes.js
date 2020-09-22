@@ -15,7 +15,7 @@ router.get('/home', (req, res) => res.redirect(`/users/${req.user.username}`))
 // DELETE (For deleting the user)
 
 // UPDATE (Edit my profile)
-router.get('/settings', (req, res) => res.redirect(`/users/${req.user.username}/settings`))
+router.get('/settings', isLoggedIn, (req, res) => res.redirect(`/users/${req.user.username}/settings`))
 
 router.get('/:username/settings', isLoggedIn, (req, res) => res.render('user/settings', { user: req.user }))
 

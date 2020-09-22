@@ -83,7 +83,7 @@ router.post("/register", registerUser(), passport.authenticate("local", {
 
 
 // Login
-router.get('/login', (req, res, next) => res.render('auth/login'))
+router.get('/login', (req, res, next) => res.render('auth/login', { errorMessage: req.session.errorMessage }))
 
 // Login (post)
 router.post("/login", passport.authenticate("local", {

@@ -116,7 +116,6 @@ main {
       position: relative; }
       main .settings .edition .image .profile-img img {
         width: 100%;
-        height: 100%;
         border-radius: 50%; }
       main .settings .edition .image .profile-img figure {
         position: absolute;
