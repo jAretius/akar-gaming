@@ -1,11 +1,8 @@
- const mongoose = require('mongoose');
- const Company = require('../models/company.model');
+const mongoose = require('mongoose');
+const Company = require('../models/company.model');
 
- const dbName = 'akar';
- mongoose.connect(`mongodb://localhost/${dbName}`, {
-     useNewUrlParser: true,
-     useUnifiedTopology: true
- })
+const dbName = 'akar';
+mongoose.connect(`mongodb+srv://Popinator:1234@cluster0.7ya48.mongodb.net/test`)
 
 const companies = [
     {
@@ -33,7 +30,7 @@ const companies = [
         website: "https://www.square-enix.com/",
     }
 ]
- 
+
 Company.create(companies)
     .then(allCompaniesCreated => console.log('A total of', allCompaniesCreated.length, 'companies were created into the DB'))
     .catch(err => console.log('ERROR: ', err))
