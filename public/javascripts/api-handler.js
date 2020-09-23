@@ -2,7 +2,7 @@ class APIHandler {
 
     constructor() {
         this.app = axios.create({
-            baseURL: 'http://localhost:3000/api'
+            baseURL: 'http://akar-gaming.herokuapp.com/api'
         })
     }
 
