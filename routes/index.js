@@ -6,4 +6,5 @@ module.exports = app => {
     app.use("/games", require("./games.routes"))
     app.use("/articles", require("./articles.routes"))
     app.use("/companies", require("./companies.routes"))
+    app.use("/api", require("./api.routes"))
 }

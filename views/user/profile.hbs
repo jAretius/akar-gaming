@@ -34,31 +34,51 @@
 
                     <h2>{{matchedUser.username}}</h2>
 
-                    {{#unless isOwner}}
-
-                    <a href="/users/follow/{{matchedUser.id}}" class="follow-btn">
-
-                        <div class="d-flex justify-content-center align-items-center">
-
-                            <p>follow</p>
-
-                        </div>
-
-                    </a>
-
-                    {{/unless}}
-
                     <p>@{{matchedUser.username}}</p>
 
                 </div>
 
             </div>
 
+            {{#unless isOwner}}
+
+            {{!-- <form action='/users/follow/{{matchedUser.id}}' method='post'>
+
+                <input type='hidden' value={{matchedUser.username}} name='username'>
+
+                <button type='submit' class='follow-btn'>
+
+                    <p>follow</p>
+
+                </button>
+
+            </form> --}}
+
+            <div class='btn-container'>
+
+                <button class='follow-btn btn-important' value={{matchedUser.id}}>
+
+                    {{#if isFollowing}}
+
+                    unfollow
+
+                    {{else}}
+
+                    follow
+
+                    {{/if}}
+
+                </button>
+
+            </div>
+
+            {{/unless}}
+
         </div>
 
         <div class="social col-md-6">
 
-            <div class="row justify-content-around justify-content-md-end align-items-center">
+            <div class="row justify-content-around justify-content-md-end align-items-end">
 
                 <a class="played d-flex flex-column justify-content-center align-items-center" href='#'>
                     <h2>0</h2>
@@ -66,12 +86,12 @@
                 </a>
 
                 <a class="followers d-flex flex-column justify-content-center align-items-center" href='#'>
-                    <h2>{{matchedUser.social.followers}}</h2>
+                    <h2 id='followers-text'>{{followers}}</h2>
                     <p>Followers</p>
                 </a>
 
                 <a class="following d-flex flex-column justify-content-center align-items-center" href='#'>
-                    <h2>{{matchedUser.social.following}}</h2>
+                    <h2>{{matchedUser.following.length}}</h2>
                     <p>Following</p>
                 </a>
 
@@ -135,3 +155,8 @@
     </div>
 
 </section>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/api-handler.js"></script>
+
+<script src="/javascripts/follow.js"></script>

@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Game = require('../models/game.model');
 const ObjectId = mongoose.Types.ObjectId
 
-const dbName = 'akar';
 mongoose.connect(`mongodb+srv://Popinator:1234@cluster0.7ya48.mongodb.net/test`)
 
 const games = [
