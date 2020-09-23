@@ -10,6 +10,14 @@ const eventSchema = new Schema({
         type: Date,
         required: true
     },
+    formattedDate: {
+        type: String,
+        default: ""
+    },
+    description: {
+        type: String,
+        required: true
+    },
     type: {
         type: String,
         enum: ["conference", "convention", "big event", "community event"]
@@ -32,6 +40,6 @@ eventSchema.index({
     location: '2dsphere'
 })
 
-const Event = mongoose.model("Place", eventSchema);
+const Event = mongoose.model("Event", eventSchema);
 
 module.exports = Event;

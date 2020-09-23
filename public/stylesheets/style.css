@@ -299,4 +299,7 @@ main {
   border-radius: 20px;
   padding: 25px; }
 
+#map {
+  height: 500px; }
+
 /*# sourceMappingURL=style.css.map */
