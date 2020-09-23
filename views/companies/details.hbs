@@ -3,7 +3,12 @@
     <div class="company-details-container">
         <article>{{description}}</article><br>
         <img src="{{logo}}" alt="{{name}} logo"><br><br>
-        <a href="{{website}}" class="btn btn-dark">Compny's website</a>
+            <a href="{{website}}" class="btn btn-dark">Company's website</a><br>
+            <a href="/companies/related?id={{_id}}" class="btn btn-dark">Related Games</a><br>
+        <div class="">
+            <a class="btn btn-dark" href="/companies/{{id}}/newArticle">Write an article</a>
+            <a class="btn btn-dark" href="/companies/{{id}}/articles">News and Reviews</a>
+        </div>
     </div><br><br>
 
     <div class="buttons">

@@ -3,6 +3,7 @@ const router = express.Router()
 
 const Company = require("../models/company.model")
 const Game = require("../models/game.model")
+const Article = require("../models/article.model")
 
 // Middlewares
 
@@ -11,11 +12,11 @@ const isLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.redi
 
 // Roles management middlewares
 const checkPrivilege = (authRoles) => {
-
+    
     return (req, res, next) => {
-
+        
         if (authRoles.includes(req.user.role)) {
-
+            
             next()
 
         } else {
@@ -32,6 +33,14 @@ router.get("/", (req, res, next) => {
 
     Company.find({}, { name: 1 })
         .then(companies => res.render("companies/index", { companies }))
+        .catch(err => next(err))
+})
+
+//Company related Games
+router.get("/related", (req, res, next) => {
+    
+    Game.find({ company: req.query.id }, { title: 1, image: 1 })
+        .then(games => res.render("games/index", { games }))
         .catch(err => next(err))
 })
 
@@ -79,12 +88,32 @@ router.get("/:companyId", (req, res, next) => {
         .catch(err => next(err))
 })
 
+
 //Company articles Index
 router.get("/:companyId/articles", (req, res, next) => {
     const id = req.params.companyId
 
     Article.find({ companyId: id })
-        .then(() => res.render("companies/articleIndex"))
+        .populate("creatorId")
+        .then((articles) => res.render("companies/articleIndex", {articles}))
+        .catch(err => next(new Error(err)))
+})
+
+//Company new Article
+router.get("/:companyId/newArticle", (req, res, next) => {
+    const id = req.params.companyId
+    const user = req.user
+
+    Company.findById(id)
+        .then(company => res.render("companies/newArticle", { company, user }))
+        .catch(err => next(new Error(err)))
+})
+
+router.post("/:companyId/newArticle", (req, res, next) => {
+    const { text, creatorId, companyId, type } = req.body
+    
+    Article.create({ text, creatorId, companyId, type })
+        .then(() => res.redirect("/companies"))
         .catch(err => next(new Error(err)))
 })
 
