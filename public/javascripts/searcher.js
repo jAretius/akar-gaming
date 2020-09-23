@@ -1,14 +1,17 @@
-const searchAPI = new searchAPIHandler()
+const searchAPI = new APIHandler()
 
 const usersParentObject = document.querySelector('.user-cards-container')
 const gamesParentObject = document.querySelector('.games-cards-container')
 const domReferenceObject = document.querySelector('.info-card')
+const searchInput = document.querySelector('.search-input')
 
 // We show the results screen
 document.querySelector('.search-input').addEventListener('click', function (event) {
 
     document.querySelector('.search-screen').style.opacity = 100
     document.querySelector('.search-screen').style.pointerEvents = 'auto';
+
+    searchAll()
 })
 
 // We hide the results screen
@@ -21,23 +24,51 @@ document.querySelector('.search-input').addEventListener('focusout', function (e
 // We search and display the results
 document.querySelector('.search-input').addEventListener('keyup', function (event) {
 
-    // console.log(event.target.value)
+    searchAll()
 
-    searchAPI.search(event.target.value)
+})
+
+function searchAll() {
+
+    cleanScreen()
+
+    if (searchInput.value !== '') {
+
+        searchUsers()
+
+        searchGames()
+    }
+}
+
+function searchUsers() {
+
+    searchAPI.searchUsers(searchInput.value)
         .then(devuelto => {
-
-            cleanScreen()
 
             devuelto.data.forEach(elm => {
 
-                const newCard = createCard(elm)
+                const newCard = createUserCard(elm)
 
                 usersParentObject.appendChild(newCard)
-
             });
         })
         .catch(err => console.log(err))
-})
+}
+
+function searchGames() {
+
+    searchAPI.searchGames(searchInput.value)
+        .then(devuelto => {
+
+            devuelto.data.forEach(elm => {
+
+                const newCard = createGameCard(elm)
+
+                gamesParentObject.appendChild(newCard)
+            });
+        })
+        .catch(err => console.log(err))
+}
 
 // We clean the characters from the screen
 function cleanScreen() {
@@ -53,13 +84,36 @@ function cleanScreen() {
     }
 }
 
-// We create a card
-function createCard(item) {
+// We create a card for the user
+function createUserCard(item) {
 
     // We clone the reference object
     const createdElement = domReferenceObject.cloneNode(true)
+    const username = createdElement.querySelector('#username')
 
-    createdElement.children[0].innerText = item.username
+    // We set the username text and its link
+    username.innerText = item.username
+    username.setAttribute('href', `/users/${item.username}`)
+
+    createdElement.querySelector('#image-link').setAttribute('href', `/users/${item.username}`)
+    createdElement.querySelector('#image-link').querySelector('#profile-image').setAttribute('src', `${item.profileImage}`)
+
+    return createdElement
+}
+
+// We create a card for the games
+function createGameCard(item) {
+
+    // We clone the reference object
+    const createdElement = domReferenceObject.cloneNode(true)
+    const username = createdElement.querySelector('#username')
+
+    // We set the username text and its link
+    username.innerText = item.title
+    username.setAttribute('href', `/games/${item._id}`)
+
+    createdElement.querySelector('#image-link').setAttribute('href', `/games/${item._id}`)
+    createdElement.querySelector('#image-link').querySelector('#profile-image').setAttribute('src', `${item.image}`)
 
     return createdElement
 }
