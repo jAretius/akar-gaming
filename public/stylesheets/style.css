@@ -10,6 +10,9 @@ body {
   font-family: sans-serif;
   background-color: #040a1b; }
 
+#map {
+  height: 500px; }
+
 .btn-important {
   outline: none;
   padding: 8px 20px;
@@ -48,6 +51,7 @@ body {
   padding: 40px;
   opacity: 0;
   backdrop-filter: blur(100px);
+  background-color: rgba(4, 10, 27, 0.7);
   position: absolute;
   z-index: 1;
   top: 100px;
