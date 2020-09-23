@@ -102,4 +102,12 @@ router.get('/logout', (req, res, next) => {
 
 })
 
+// Searcher
+router.post('/search', (req, res, next) => {
+
+    User.find({ username: req.body.username })
+        .then(matchedUser => res.render('search-results', { matchedUser }))
+
+})
+
 module.exports = router

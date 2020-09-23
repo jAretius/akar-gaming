@@ -14,6 +14,12 @@ router.get('/home', (req, res) => res.redirect(`/users/${req.user.username}`))
 
 // DELETE (For deleting the user)
 
+router.get('/follow/:id', isLoggedIn, (req, res, next) => {
+
+    User.findByIdAndUpdate(req.user.id,)
+
+})
+
 // UPDATE (Edit my profile)
 router.get('/settings', isLoggedIn, (req, res) => res.redirect(`/users/${req.user.username}/settings`))
 
@@ -58,10 +64,21 @@ router.post('/:id/settings', isLoggedIn, (req, res, next) => {
         })
 })
 
-
-
 // READ
-router.get('/:username', isLoggedIn, (req, res) => res.render('user/profile', req.user))
+router.get('/:username', isLoggedIn, (req, res) => {
 
+    User.find({ username: req.params.username })
+        .then(matchedUser => {
+
+            // True if the logged is the owner of the profile we're visiting
+            let isOwner
+
+            req.user.username === matchedUser[0].username ? isOwner = true : isOwner = false
+
+            res.render('user/profile', { matchedUser: matchedUser[0], loggedUser: req.user, isOwner })
+        })
+        .catch(err => next(err))
+
+})
 
 module.exports = router

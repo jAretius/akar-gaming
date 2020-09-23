@@ -10,7 +10,9 @@
 
                     <div>
 
-                        <img src={{profileImage}} alt="profile image of {{username}}">
+                        <img src={{matchedUser.profileImage}} alt="profile image of {{matchedUser.username}}">
+
+                        {{#if isOwner}}
 
                         <a class='settings d-flex justify-content-center align-items-center' href="/users/settings">
 
@@ -22,14 +24,31 @@
 
                         </a>
 
+                        {{/if}}
+
                     </div>
 
                 </div>
 
                 <div class="username col">
 
-                    <h2>{{username}}</h2>
-                    <p>@{{username}}</p>
+                    <h2>{{matchedUser.username}}</h2>
+
+                    {{#unless isOwner}}
+
+                    <a href="/users/follow/{{matchedUser.id}}" class="follow-btn">
+
+                        <div class="d-flex justify-content-center align-items-center">
+
+                            <p>follow</p>
+
+                        </div>
+
+                    </a>
+
+                    {{/unless}}
+
+                    <p>@{{matchedUser.username}}</p>
 
                 </div>
 
@@ -47,12 +66,12 @@
                 </a>
 
                 <a class="followers d-flex flex-column justify-content-center align-items-center" href='#'>
-                    <h2>{{social.followers}}</h2>
+                    <h2>{{matchedUser.social.followers}}</h2>
                     <p>Followers</p>
                 </a>
 
                 <a class="following d-flex flex-column justify-content-center align-items-center" href='#'>
-                    <h2>{{social.following}}</h2>
+                    <h2>{{matchedUser.social.following}}</h2>
                     <p>Following</p>
                 </a>
 
