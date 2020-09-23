@@ -8,7 +8,7 @@
 
         <div class="col-md-6">
 
-            <form action="/games/{{game._id}}/newArticle" method="post">
+            <form action="/companies/{{company._id}}/newArticle" method="post">
                 <div class="form-group">
                     <label for="text-input">Write here:</label>
                     <input name="text" type="text" class="form-control" id="text-input">
@@ -16,7 +16,7 @@
 
                 <div class="form-group">
                     <input name="creatorId" type="hidden" class="form-control" id="creatorId-input" value="{{user._id}}">
-                    <input name="gameId" type="hidden" class="form-control" id="gameId-input" value="{{game._id}}">
+                    <input name="companyId" type="hidden" class="form-control" id="companyId-input" value="{{company._id}}">
                 </div>
 
                 <div class="form-check form-check-inline">

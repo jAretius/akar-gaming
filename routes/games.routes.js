@@ -89,11 +89,12 @@ router.get("/:gameId", (req, res, next) => {
         .catch(err => next(new Error(err)))
 })
 
-//Game reviews Index
+//Game articles Index
 router.get("/:gameId/articles", (req, res, next) => {
     const id = req.params.gameId
 
     Article.find({ gameId: id })
+        .populate("creatorId")
         .then((articles) => res.render("games/articleIndex", {articles}))
         .catch(err => next(new Error(err)))
 })
@@ -101,16 +102,17 @@ router.get("/:gameId/articles", (req, res, next) => {
 //Game new Article
 router.get("/:gameId/newArticle", (req, res, next) => {
     const id = req.params.gameId
+    const user = req.user
 
     Game.findById(id)
-        .then(game => res.render("games/newArticle", { game }))
+        .then(game => res.render("games/newArticle", { game, user }))
         .catch(err => next(new Error(err)))
 })
 
 router.post("/:gameId/newArticle", (req, res, next) => {
-    const { text, gameId, type } = req.body
+    const { text, creatorId, gameId, type } = req.body
     
-    Article.create({ text, gameId, type })
+    Article.create({ text, creatorId, gameId, type })
         .then(() => res.redirect("/games"))
         .catch(err => next(new Error(err)))
 })
