@@ -6,7 +6,7 @@ class APIHandler {
         })
     }
 
-    setFollow = (followeId) => this.app.post(`/follow/${followeId}`)
+    setFollow = (followeId) => this.app.put(`/follow/${followeId}`)
 
     // getAllCharacters = () => this.app.get('/characters')
     // getOneCharacter = characterId => this.app.get(`/characters/${characterId}`)

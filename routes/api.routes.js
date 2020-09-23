@@ -9,7 +9,7 @@ const User = require('../models/user.model')
 const isLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.redirect('/login')
 
 // End points
-router.post('/follow/:id', isLoggedIn, (req, res, next) => {
+router.put('/follow/:id', isLoggedIn, (req, res, next) => {
 
     User.find({ _id: req.user.id, following: req.params.id }, { _id: 1 })
         .then(matchedUser => {
@@ -26,6 +26,7 @@ router.post('/follow/:id', isLoggedIn, (req, res, next) => {
 
             User.findByIdAndUpdate(req.user.id, { $push: { following: req.params.id } })
                 .then(() => res.send('Following pushed correctly'))
+                .catch(err => next(err))
 
             return
 
