@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Company = require('../models/company.model');
 
-const dbName = 'akar';
 mongoose.connect(`mongodb+srv://Popinator:1234@cluster0.7ya48.mongodb.net/test`)
 
 const companies = [
