@@ -68,7 +68,7 @@ router.get('/', (req, res) => req.user ? res.redirect('/users/home') : res.rende
 // Register
 router.get('/register', (req, res, next) => {
 
-    req.user ? res.redirect('/users/home') : res.render('auth/register')
+    res.render('auth/register')
 
 })
 

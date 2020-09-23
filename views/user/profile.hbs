@@ -42,7 +42,7 @@
 
             {{#unless isOwner}}
 
-            <form action='/users/follow/{{matchedUser.id}}' method='post'>
+            {{!-- <form action='/users/follow/{{matchedUser.id}}' method='post'>
 
                 <input type='hidden' value={{matchedUser.username}} name='username'>
 
@@ -52,7 +52,25 @@
 
                 </button>
 
-            </form>
+            </form> --}}
+
+            <div class='btn-container'>
+
+                <button class='follow-btn btn-important' value={{matchedUser.id}}>
+
+                    {{#if isFollowing}}
+
+                    unfollow
+
+                    {{else}}
+
+                    follow
+
+                    {{/if}}
+
+                </button>
+
+            </div>
 
             {{/unless}}
 
@@ -60,7 +78,7 @@
 
         <div class="social col-md-6">
 
-            <div class="row justify-content-around justify-content-md-end align-items-center">
+            <div class="row justify-content-around justify-content-md-end align-items-end">
 
                 <a class="played d-flex flex-column justify-content-center align-items-center" href='#'>
                     <h2>0</h2>
@@ -68,7 +86,7 @@
                 </a>
 
                 <a class="followers d-flex flex-column justify-content-center align-items-center" href='#'>
-                    <h2>0</h2>
+                    <h2 id='followers-text'>{{followers}}</h2>
                     <p>Followers</p>
                 </a>
 
@@ -137,5 +155,8 @@
     </div>
 
 </section>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/api-handler.js"></script>
 
 <script src="/javascripts/follow.js"></script>
