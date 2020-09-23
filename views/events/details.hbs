@@ -1,0 +1,16 @@
+<div class="event-details">
+    <h2>{{name}}</h2><br>
+    <div class="event-details-container">
+        <p>{{formattedDate}}</p>
+        <article>{{description}}</article><br>
+        <label>Attendants:</label><span>{{attendants.length}}</span>
+        <div id="map"></div><br>
+        <a class="btn btn-dark" href="/events/attend/{{_id}}">Attend to this Event</a>
+    </div><br><br>
+
+    <div class="buttons">
+        <a href="/events/edit?id={{_id}}" class="btn btn-dark">Edit</a>
+        <a href="/events/delete?id={{_id}}" class="btn btn-dark">Delete</a>
+        <a href="/events" class="btn btn-dark">Go Back</a>
+    </div>
+</div>
