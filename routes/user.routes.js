@@ -4,6 +4,7 @@ const { findByIdAndUpdate } = require('../models/user.model')
 const router = express.Router()
 
 const User = require('../models/user.model')
+const Article = require("../models/article.model")
 
 // Middleware that checks that user is logged in
 const isLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.redirect('/login')
@@ -20,6 +21,16 @@ router.post('/follow/:id', isLoggedIn, (req, res, next) => {
         .then(() => res.redirect(`/users/${req.body.username}`))
         .catch(err => next(err))
 
+})
+
+router.get('/:id/reviews', (req, res, next) => {
+
+    Article.find({ creatorId: req.params.id, type: 'REVIEW' }).sort({ createdAt: -1 }).populate('gameId', 'title')
+        .then(matchedArticles => {
+
+            console.log(matchedArticles)
+            res.render('user/reviews', { matchedArticles })
+        })
 })
 
 // UPDATE (Edit my profile)
@@ -99,21 +110,6 @@ router.get('/:username', isLoggedIn, (req, res) => {
     }
 })
 
-// router.get('/:username', isLoggedIn, (req, res) => {
 
-//     User.find({ username: req.params.username, username: req.user.username })
-//         .then(matchedUser => {
-
-//             // True if the logged is the owner of the profile we're visiting
-//             let isOwner
-
-//             req.user.username === matchedUser[0].username ? isOwner = true : isOwner = false
-
-//             res.render('user/profile', { matchedUser: matchedUser[0], loggedUser: req.user, isOwner })
-
-//         })
-//         .catch(err => next(err))
-
-// })
 
 module.exports = router

@@ -1,0 +1,56 @@
+<section class="user-reviews">
+
+    {{#if matchedArticles.length}}
+
+    <h2 class='title'>Reviews</h2>
+
+    <div class="row justify-content-around">
+
+        {{#each matchedArticles}}
+
+        <div class="col-md-6 col-lg-4">
+
+            <article class="content d-flex flex-column">
+
+                <header class='d-flex justify-content-center'>
+
+                    <h2>{{gameId.title}}</h2>
+
+                </header>
+
+                <div class="body">
+
+                    <div class="text-box">
+
+                        <p>{{text}}</p>
+
+                    </div>
+
+                </div>
+
+                <div class="footer">
+
+                    <p class="date">{{formatedDate}}</p>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+        {{/each}}
+
+    </div>
+
+    {{else}}
+
+    <h2 class="alternative-text">
+
+        This user has no reviews
+
+    </h2>
+
+    {{/if}}
+
+</section>

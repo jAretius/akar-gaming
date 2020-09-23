@@ -22,8 +22,12 @@ const articleSchema = new mongoose.Schema({
         type: String,
         enum: ["REVIEW", "NEWS"],
         default: "REVIEW"
+    },
+    formatedDate: {
+        type: String,
+        default: ''
     }
-})
+}, { timestamps: true })
 
 const Article = mongoose.model("Article", articleSchema);
 

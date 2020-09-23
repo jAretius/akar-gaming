@@ -43,6 +43,27 @@ body {
   .main-header form {
     display: inline-block; }
 
+.search-screen {
+  pointer-events: none;
+  padding: 40px;
+  opacity: 0;
+  backdrop-filter: blur(100px);
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  left: 0;
+  width: 100vw;
+  /* Firefox */
+  height: -moz-calc(100% - 100px);
+  /* WebKit */
+  height: -webkit-calc(100% - 100px);
+  /* Opera */
+  height: -o-calc(100% - 100px);
+  /* Standard */
+  height: calc(100% - 100px);
+  transition: all;
+  transition-duration: .5s; }
+
 main {
   max-width: 1280px;
   margin: 0 auto;
@@ -171,6 +192,39 @@ main {
         main .settings .edition .image .profile-img figure div {
           width: 100%;
           height: 100%; }
+  main .user-reviews {
+    padding-top: 30px; }
+    main .user-reviews .title {
+      margin-bottom: 30px; }
+    main .user-reviews div[class*='col'] {
+      padding: 10px; }
+      main .user-reviews div[class*='col'] .content {
+        height: 100%;
+        background-color: #ee6414;
+        border-radius: 20px; }
+        main .user-reviews div[class*='col'] .content header {
+          padding: 10px 20px;
+          padding-bottom: 0; }
+          main .user-reviews div[class*='col'] .content header h2 {
+            color: white;
+            text-align: center;
+            margin: 0;
+            font-size: 1.3em; }
+        main .user-reviews div[class*='col'] .content .body {
+          flex-grow: 1;
+          padding: 20px;
+          padding-top: 10px; }
+          main .user-reviews div[class*='col'] .content .body .text-box {
+            background-color: #ecd0bf;
+            color: black;
+            border-radius: 10px;
+            height: 100%;
+            padding: 20px; }
+            main .user-reviews div[class*='col'] .content .body .text-box p {
+              margin: 0;
+              font-style: italic; }
+        main .user-reviews div[class*='col'] .content .footer {
+          padding-left: 20px; }
 
 @media (min-width: 768px) {
   main .profile .header .user-info .username {

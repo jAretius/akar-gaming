@@ -1,5 +1,3 @@
-console.log('Bienvenido de nuevo al Front end!!!')
-
 const backAPI = new APIHandler()
 
 if (document.querySelector('.follow-btn')) {
@@ -21,6 +19,5 @@ if (document.querySelector('.follow-btn')) {
             followers.innerText = Number.parseInt(followers.innerText) - 1
 
         }
-
     })
 }

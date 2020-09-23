@@ -4,6 +4,7 @@ const router = express.Router()
 const Game = require("../models/game.model")
 const Company = require("../models/company.model")
 const Article = require("../models/article.model")
+const { format } = require('morgan')
 
 // Middlewares
 
@@ -95,7 +96,7 @@ router.get("/:gameId/articles", (req, res, next) => {
 
     Article.find({ gameId: id })
         .populate("creatorId")
-        .then((articles) => res.render("games/articleIndex", {articles}))
+        .then((articles) => res.render("games/articleIndex", { articles }))
         .catch(err => next(new Error(err)))
 })
 
@@ -111,9 +112,22 @@ router.get("/:gameId/newArticle", (req, res, next) => {
 
 router.post("/:gameId/newArticle", (req, res, next) => {
     const { text, creatorId, gameId, type } = req.body
-    
+
     Article.create({ text, creatorId, gameId, type })
-        .then(() => res.redirect("/games"))
+        .then(createdArticle => {
+
+            const creationDay = createdArticle.createdAt.getDate()
+            const creationMonth = createdArticle.createdAt.getMonth() + 1
+            const creationYear = createdArticle.createdAt.getFullYear()
+
+            const formatedDate = `${creationDay}/${creationMonth}/${creationYear}`
+
+            return Article.findByIdAndUpdate(createdArticle.id, { formatedDate: formatedDate })
+        })
+        .then(() => {
+
+            res.redirect("/games")
+        })
         .catch(err => next(new Error(err)))
 })
 
