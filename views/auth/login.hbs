@@ -1,26 +1,28 @@
-<form action='/login' method="POST">
-    <div class='form-group'>
+<section class="login">
 
-        <label for='username'>Username</label>
-        <input id='username' type='text' class='form-control' placeholder='Username' name='username'>
+    <form action='/login' method="POST">
+        <div class='form-group'>
 
-    </div>
+            <input id='username' type='text' placeholder='Username' name='username'>
 
-    <div class='form-group'>
+        </div>
 
-        <label for='pass'>Password</label>
-        <input id='pass' type='password' class='form-control' placeholder='Password' name='password'>
+        <div class='form-group'>
 
-    </div>
+            <input id='pass' type='password' placeholder='Password' name='password'>
 
-    {{#if errorMessage}}
+        </div>
 
-    <div class="alert alert-danger" role="alert">
-        {{errorMessage}}
-    </div>
+        {{#if errorMessage}}
 
-    {{/if}}
+        <div class="alert alert-danger" role="alert">
+            {{errorMessage}}
+        </div>
 
-    <button type='submit' class='btn btn-primary'>Submit</button>
+        {{/if}}
 
-</form>
+        <button type='submit' class='btn-rounded btn-secondary'>Submit</button>
+
+    </form>
+
+</section>

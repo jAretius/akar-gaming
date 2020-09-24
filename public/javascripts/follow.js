@@ -8,7 +8,7 @@ if (document.querySelector('.follow-btn')) {
 
         const followers = document.getElementById('followers-text')
 
-        if (event.target.innerText === 'follow') {
+        if (event.target.innerText.toLowerCase() === 'follow') {
 
             event.target.innerText = 'unfollow'
             followers.innerText = Number.parseInt(followers.innerText) + 1

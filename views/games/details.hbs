@@ -1,5 +1,4 @@
-<div class="game-details">
-    <h2>{{title}}</h2>
+<section class="games-details">
 
     <div class="game-hero">
         <img src="{{image}}" alt="{{title}} image">
@@ -12,45 +11,53 @@
                     <a href="/companies/{{company.id}}"><img src="{{company.logo}}" alt="{{company.name}} logo"></a>
                 </div>
 
-                <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Add to your Collections</button>
-                
-                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-                    aria-hidden="true">
+                <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Add to your
+                    Collections</button>
+
+                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+                    aria-labelledby="mySmallModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-sm">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
                             </div>
                             <div class="modal-body">
                                 <form action="/users/add/{{id}}" method="POST">
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="colleccion-input" value="wantToPlay" name='colleccion'>
+                                        <input class="form-check-input" type="radio" id="colleccion-input"
+                                            value="wantToPlay" name='colleccion'>
                                         <label class="form-check-label" for="colleccion-input">Want to Play</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="colleccion-input" value="playing" name='colleccion'>
+                                        <input class="form-check-input" type="radio" id="colleccion-input"
+                                            value="playing" name='colleccion'>
                                         <label class="form-check-label" for="colleccion-input">Playing</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="colleccion-input" value="beaten" name='colleccion'>
+                                        <input class="form-check-input" type="radio" id="colleccion-input"
+                                            value="beaten" name='colleccion'>
                                         <label class="form-check-label" for="colleccion-input">Beaten</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="colleccion-input" value="completed" name='colleccion'>
+                                        <input class="form-check-input" type="radio" id="colleccion-input"
+                                            value="completed" name='colleccion'>
                                         <label class="form-check-label" for="colleccion-input">Completed</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="colleccion-input" value="shelved" name='colleccion'>
+                                        <input class="form-check-input" type="radio" id="colleccion-input"
+                                            value="shelved" name='colleccion'>
                                         <label class="form-check-label" for="colleccion-input">Shelved</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="colleccion-input" value="abandoned" name='colleccion'>
+                                        <input class="form-check-input" type="radio" id="colleccion-input"
+                                            value="abandoned" name='colleccion'>
                                         <label class="form-check-label" for="colleccion-input">Abandoned</label>
                                     </div>
 
@@ -65,12 +72,12 @@
                 <div class="game-details-lists">
                     <ul>
                         {{#each directors}}
-                            <li>{{this}}</li>
+                        <li>{{this}}</li>
                         {{/each}}
                     </ul>
                     <ul>
                         {{#each platforms}}
-                            <li>{{this}}</li>
+                        <li>{{this}}</li>
                         {{/each}}
                     </ul>
                 </div>
@@ -80,13 +87,16 @@
         </div>
     </div>
 
-        <iframe width="560" height="315" src="{{trailer}}" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"allowfullscreen></iframe>
+    <iframe width="560" height="315" src="{{trailer}}" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
 
-        <div class="game-details-buttons">
-            <a href="/games/edit?id={{_id}}" class="btn btn-dark">Update</a>
-            <a href="/games/delete?id={{_id}}" class="btn btn-dark">Delete</a>
-            <a href="/games" class="btn btn-dark">Go Back</a>
-        </div>
+    <div class="game-details-buttons">
+        <a href="/games/edit?id={{_id}}" class="btn btn-dark">Update</a>
+        <a href="/games/delete?id={{_id}}" class="btn btn-dark">Delete</a>
+        <a href="/games" class="btn btn-dark">Go Back</a>
+    </div>
 
-</div>
+    </div>
+
+</section>

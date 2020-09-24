@@ -4,6 +4,8 @@ $hover-color: rgb(22, 27, 43);
 $main-text-color: white;
 $secondary-text-color: grey;
 
+$error-color: red;
+
 // User collection colors
 $want: rgb(47, 182, 148);
 $playing:  rgb(59, 139, 39);
@@ -11,11 +13,6 @@ $beaten: rgb(70, 59, 165);
 $completed:  rgb(115, 54, 185);
 $shelved:rgb(192, 82, 18);
 $abandoned: rgb(202, 52, 26);
-
-p{
-  pointer-events: none;
-}
-
 
 *[class*='row']{
 
@@ -31,11 +28,47 @@ p{
 
 }
 
+// General rules
 body {
   padding: 0;
   font-family: sans-serif;
 
   background-color: $main-color;
+}
+
+p{
+  pointer-events: none;
+}
+
+form{
+
+  max-width: 500px;
+  margin: 0 auto;  
+
+  input{
+    
+    height: 50px;
+    border-radius: 25px;
+    
+    padding: 0 20px;
+    width: 100%;
+    
+    background-color: $main-color;
+    border: solid 1px $main-text-color;
+    
+    color: $main-text-color;
+    font-weight: 900;
+    font-size: 1.2em;
+    
+    outline: none;
+  }
+}
+
+
+section{
+
+  padding: 40px 20px
+
 }
 
 #map {
@@ -44,34 +77,70 @@ body {
 
 }
 
-// General rules
-.btn-important{
+.btn-rounded{
+
   outline: none;
 
   padding: 8px 20px;
-
-  border: solid 1px lime;
-  border-radius: 25px; 
-  
-  background-color: $main-color;
-  color: lime;
+  border-radius: 25px;
   
   transition: all;
   transition-duration: .5s;
-
-  color: lime;
-  font-size: 1.2em;
+  
+  font-size: 1em;
   font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+.btn-rounded:hover{
+  outline: none;
+
+  text-decoration: none;
+}
+
+.btn-important{
+
+  border: solid 1px lime;
+  
+  background-color: $main-color;
+  color: $main-text-color
 }
 
 .btn-important:hover{
-  outline: none;
 
   background-color: lime;
 
-  color: $main-color;
-
+  color: $main-color
 }
+
+.btn-secondary{
+
+  border: solid 1px $main-text-color;
+  
+  background-color: $main-color;
+  color: $main-text-color
+}
+
+.btn-secondary:hover{
+
+  background-color: $main-text-color;
+
+  color: $main-color
+}
+
+.btn-red{
+
+  border: solid 1px $error-color;
+  background-color: $main-color;
+  color: $main-text-color;
+}
+.btn-red:hover{
+
+  background-color: $error-color;
+  color: $main-color;
+}
+
 
 // Sections
 
@@ -85,25 +154,37 @@ body {
   width: 100%;
   height: 100px;
 
-  border: solid 1px white;
+  //border: solid 1px white;
 
   .logo{
 
-    font-size: 2em;
-    color: white
+    font-size: 2.3em;
+    font-weight: 900;
+    color: white;
 
+    margin-right: 1em;
+  }
+
+  .logo:hover{
+
+    text-decoration: none;
+  }
+
+  .btn-login:hover{
+
+    background-color: $main-text-color;
+    color: $main-color;
+    text-decoration: none;
   }
 
   a{
 
     margin: 0 5px
-
   }
 
   form{
 
-    display: inline-block;
-
+    display: inline-block
   }
 
 
@@ -126,16 +207,18 @@ body {
   top: 100px;
   left: 0;
 
-  width: 100vw;
+  width: 100%;
 
-  /* Firefox */
-  height: -moz-calc(100% - 100px);
-  /* WebKit */
-  height: -webkit-calc(100% - 100px);
-  /* Opera */
-  height: -o-calc(100% - 100px);
-  /* Standard */
-  height: calc(100% - 100px);
+  height: 100%;
+
+  // /* Firefox */
+  // height: -moz-calc(100% - 100px);
+  // /* WebKit */
+  // height: -webkit-calc(100% - 100px);
+  // /* Opera */
+  // height: -o-calc(100% - 100px);
+  // /* Standard */
+  // height: calc(100% - 100px);
 
   transition: all;
   transition-duration: .5s;
@@ -211,6 +294,111 @@ main {
       text-decoration: none;
   
     }
+    
+
+  // main-home
+
+  .main-home{
+
+    .hero{
+
+      h1{
+
+        font-weight: 900;
+        font-size: 6em;
+        max-width: 800px;
+        margin-bottom: .8em;
+      }
+
+      h2{
+
+        font-size: 3.2em;
+        margin-bottom: .5em;
+      }
+
+      p{
+
+        font-size: 2em;
+        margin-bottom: 1.3em;
+      }
+
+      .btn-important{
+        
+        height: 50px;
+        border-radius: 25px;
+        display: inline-block;
+
+        h2{
+
+          font-size: 1.2em;
+          display: inline-block;
+          margin-top:4px;
+        }
+      }
+
+      .btn-important:hover{
+        color: $main-color
+      }
+    }
+
+    .offer{
+
+      margin-top: 50px;
+
+      .content{
+
+        display: block;
+
+        border: solid 1px $main-text-color;
+        border-radius: 20px;
+        padding: 20px;
+        margin: 10px 0;
+
+        transition: all;
+        transition-duration: .5s;
+
+        svg{  
+  
+          display: block;
+          margin: 0 auto;
+          height: 100%;
+        }
+
+        h2{
+
+          text-align: center;
+        }
+
+        .icon{
+
+          height: 200px;
+
+          .game-icon{
+
+            max-width: 150px;
+          }
+
+          .company-icon{
+
+            max-width: 120px;
+          }
+
+          .event-icon{
+
+            max-width: 110px;
+          }
+
+        }
+      }
+
+      .content:hover{
+
+        background-color: $hover-color;
+      }
+
+    }
+
+  }
 
   // Profile
   
@@ -278,7 +466,12 @@ main {
   
             display: block;
             margin: 0 auto;
-          }    
+            color: lime;
+          }
+          
+          .follow-btn:hover{
+            color: $main-color
+          }
         }
           
         .username {
@@ -402,14 +595,8 @@ main {
     }
   }
 
+  // User settings
   .settings{
-
-    input{
-
-      border-radius: 20px;
-      padding: 0 20px
-
-    }
 
     .options{
 
@@ -425,27 +612,14 @@ main {
         h3{
 
           margin: 0
-
-        }
-        
+        }        
       }
-
-      .active{
-
-        background-color:$hover-color;
-        
-        border-left: solid 5px lime;  
-
-      }
-
     }
 
     .edition{
 
       h2{
-
         margin: 0 0 30px 15px;
-
       }
 
       .image{
@@ -495,9 +669,29 @@ main {
             }
           }       
       }
+
+      .form{
+
+        form{
+
+          .email{
+
+            margin-bottom: 30px;
+          }
+
+          .btn-red{
+
+            display: inline-block;  
+            padding: 8px 20px;
+            border-radius: 25px;
+            margin-left: 10px;
+          }
+        }
+      }
     }    
   } 
   
+  // User reviews
   .user-reviews{
 
     padding-top: 30px;
@@ -568,6 +762,29 @@ main {
       }
     }
   }
+
+  // Games index
+  .games{
+
+    .game-list-view{
+
+      .game-card{
+
+        a{
+          display: inline-block;
+          max-width: 200px;
+          border-radius: 10px;
+
+          img{
+
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+
 }
 
 @media (min-width: 768px) {

@@ -17,27 +17,23 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 
+  <script src="/javascripts/api-handler.js"></script>
+
 </head>
 
 <body>
 
   <header class='main-header'>
-    <a class='logo' href="/">Akar</a>
-    <a href='/register' class="btn btn-dark">Sign up</a>
-    <a href='/login' class="btn btn-dark">Log in</a>
-    <a href='/logout' class="btn btn-dark">Log out</a>
-    <a href="/games" class="btn btn-dark">Games</a>
-    <a href="/companies" class="btn btn-dark">Companies</a>
-    <a href="/events" class="btn btn-dark">Events</a>
-    <a href="/games/new" class="btn btn-dark">Create a Game</a>
+    <a class='logo' href="/">akar</a>
+    <a href='/login' class="btn-rounded btn-secondary">Log in</a>
+    {{!-- <a href='/logout' class="btn btn-dark">Log out</a> --}}
+    {{!-- <a href="/games/new" class="btn btn-dark">Create a Game</a>
     <a href="/companies/new" class="btn btn-dark">Create a Company</a>
-    <a href="/events/new" class="btn btn-dark">Create an Event</a>
+    <a href="/events/new" class="btn btn-dark">Create an Event</a> --}}
 
     <form>
 
       <input class='search-input' type='text' placeholder='Search'>
-
-      <button type='submit' class='btn btn-primary'>Search</button>
 
     </form>
 
@@ -51,9 +47,9 @@
 
         <h2>Users</h2>
 
-        <div class="user-cards-container row justify-content-around">
+        <div class="user-cards-container row justify-content-start">
 
-          <article class='info-card col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center align-items-center'>
+          <article class='info-card col-md-6 col-lg-4 col-xl-3 d-flex justify-content-start align-items-center'>
 
             <a id='image-link' href="#">
 
@@ -80,19 +76,7 @@
 
         <h2>Games</h2>
 
-        <div class="games-cards-container row justify-content-around">
-
-          <article class='info-card col-3 d-flex justify-content-center align-items-center'>
-
-            <a id='image-link' href="#">
-
-              <img id='profile-image' src="" alt="user image">
-
-            </a>
-
-            <a id='username' href='#'>Titulo</a>
-
-          </article>
+        <div class="games-cards-container row justify-content-start">
 
         </div>
 
@@ -113,8 +97,6 @@
   {{!-- AXIOS --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-
-  <script src="/javascripts/api-handler.js"></script>
   <script src="/javascripts/searcher.js"></script>
 
   {{!-- MAPS --}}

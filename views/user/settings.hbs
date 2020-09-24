@@ -1,20 +1,5 @@
 <section class="settings">
 
-    {{!-- <div class="row">
-        <div class="options col-12 col-md-3">
-
-            <a class='active d-flex align-items-center' href="#">
-                <h3>Profile</h3>
-            </a>
-
-            <a class='d-flex align-items-center' href="#">
-                <h3>Email</h3>
-            </a>
-
-        </div>
-
-        <div class="edition col-12 col-md-9"> --}}
-
     <h2>Public Profile</h2>
 
     <div class="edition row">
@@ -50,17 +35,13 @@
             <form action='/users/{{user.id}}/settings' method="POST">
                 <div class='form-group'>
 
-                    <label for='username'>Username</label>
-                    <input id='username' type='text' class='form-control' placeholder='Username' name='username'
-                        value={{user.username}}>
+                    <input id='username' type='text' placeholder='Username' name='username' value={{user.username}}>
 
                 </div>
 
-                <div class='form-group'>
+                <div class='email form-group'>
 
-                    <label for='email'>Email</label>
-                    <input id='email' type='email' class='form-control' placeholder='Email' name='email'
-                        value={{user.email}}>
+                    <input id='email' type='email' placeholder='Email' name='email' value={{user.email}}>
 
                 </div>
 
@@ -72,18 +53,14 @@
 
                 {{/if}}
 
-                <button type='submit' class='btn btn-primary'>Submit</button>
+                <button type='submit' class='btn-rounded btn-important'>Submit</button>
 
-                <a href='/users/home' class='btn btn-danger'>Cancel</a>
+                <a href='/users/home' class='btn-rounded btn-red'>Cancel</a>
 
             </form>
 
         </div>
 
     </div>
-
-    {{!-- </div>
-
-    </div> --}}
 
 </section>

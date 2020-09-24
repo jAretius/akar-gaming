@@ -42,21 +42,9 @@
 
             {{#unless isOwner}}
 
-            {{!-- <form action='/users/follow/{{matchedUser.id}}' method='post'>
-
-                <input type='hidden' value={{matchedUser.username}} name='username'>
-
-                <button type='submit' class='follow-btn'>
-
-                    <p>follow</p>
-
-                </button>
-
-            </form> --}}
-
             <div class='btn-container'>
 
-                <button class='follow-btn btn-important' value={{matchedUser.id}}>
+                <button class='follow-btn btn-rounded btn-important' value={{matchedUser.id}}>
 
                     {{#if isFollowing}}
 
@@ -157,6 +145,5 @@
 </section>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/javascripts/api-handler.js"></script>
 
 <script src="/javascripts/follow.js"></script>
