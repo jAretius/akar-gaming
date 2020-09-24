@@ -51,25 +51,48 @@
 
         <h2>Users</h2>
 
-        <div class="user-cards-container">
+        <div class="user-cards-container row justify-content-around">
 
-          <article class='info-card'>
+          <article class='info-card col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center align-items-center'>
 
-            <a href='#'>Titulo</a>
+            <a id='image-link' href="#">
+
+              <img id='profile-image' src="" alt="user image">
+
+            </a>
+
+            <a id='username' href='#'>Titulo</a>
 
           </article>
 
         </div>
 
+      </div>
 
+      <div class="col-12">
+
+        <hr>
 
       </div>
+
 
       <div class="games col-12">
 
         <h2>Games</h2>
 
-        <div class="games-cards-container">
+        <div class="games-cards-container row justify-content-around">
+
+          <article class='info-card col-3 d-flex justify-content-center align-items-center'>
+
+            <a id='image-link' href="#">
+
+              <img id='profile-image' src="" alt="user image">
+
+            </a>
+
+            <a id='username' href='#'>Titulo</a>
+
+          </article>
 
         </div>
 
@@ -85,14 +108,21 @@
 
   </main>
 
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/javascripts/api-search-handler.js"></script>
-  <script src="/javascripts/searcher.js"></script>
   <script src="/javascripts/script.js"></script>
-  <script src="../javascripts/map-app.js"></script>
+
+  {{!-- AXIOS --}}
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+  <script src="/javascripts/api-handler.js"></script>
+  <script src="/javascripts/searcher.js"></script>
+
+  {{!-- MAPS --}}
+  <script src="../javascripts/map-app.js"></script>
+
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9lMg062FFsfMqKEok-e3mVoAPqU8iKWg&callback=initMap"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9lMg062FFsfMqKEok-e3mVoAPqU8iKWg&callback=initMap"></script>
 </body>
 
 </html>

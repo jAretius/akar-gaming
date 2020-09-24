@@ -4,6 +4,7 @@ const { findByIdAndUpdate } = require('../models/user.model')
 const router = express.Router()
 
 const User = require('../models/user.model')
+const Game = require("../models/game.model")
 const Event = require("../models/event.model")
 
 // Middleware that checks that user is logged in
@@ -43,15 +44,24 @@ router.put('/follow/:id', isLoggedIn, (req, res, next) => {
         .catch(err => next(err))
 })
 
-// Search engine
-router.get('/search/:input', (req, res, next) => {
+// Users searcher
+router.get('/search/users/:input', (req, res, next) => {
 
     User.find({ username: { $regex: new RegExp(req.params.input), $options: 'i' } })
         .then(match => {
-            console.log(match)
             res.send(match)
         })
+        .catch(err => next(err))
 
+})
+
+router.get('/search/games/:input', (req, res, next) => {
+
+    Game.find({ title: { $regex: new RegExp(req.params.input), $options: 'i' } })
+        .then(match => {
+            res.send(match)
+        })
+        .catch(err => next(err))
 })
 
 module.exports = router

@@ -53,35 +53,26 @@ router.post('/:id/settings', isLoggedIn, (req, res, next) => {
 
     const { username, email } = req.body
 
-    User.find({ $and: [{ username: { $ne: req.user.username } }, { username }] }, { _id: 1 })
+    User.find({ $and: [{ username: { $ne: req.user.username } }, { $or: [{ username }, { email }] }] })
         .then(userMatch => {
+
+            console.log(userMatch)
 
             if (userMatch.length) {
 
-                //respuesta si el name coincide
-                res.render('user/settings', { errorMessage: 'This username is already in use', user: req.user })
+                let errorMessage
+
+                userMatch[0].username === username ? errorMessage = 'This username is already in use' : errorMessage = 'This email is already in use'
+
+                res.render('user/settings', { errorMessage, user: req.user })
 
                 return
             }
 
-            // Checks if email is available
-            User.find({ $and: [{ username: { $ne: req.user.username } }, { email }] }, { _id: 1 })
-                .then(emailMatch => {
-
-                    if (emailMatch.length) {
-
-                        //respuesta si el mail coincide
-                        res.render('user/settings', { errorMessage: 'This email is already in use', user: req.user })
-
-                        return
-                    }
-
-                    User.findOneAndUpdate(req.params.id, { username, email })
-                        .then(res.redirect('/users/home'))
-                        .catch(err => next(err))
-
-                })
+            return User.findByIdAndUpdate(req.params.id, { username, email })
         })
+        .then((response) => response ? res.redirect('/users/home') : null)
+        .catch(err => next(err))
 })
 
 // READ
