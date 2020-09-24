@@ -10,6 +10,9 @@ body {
   font-family: sans-serif;
   background-color: #040a1b; }
 
+#map {
+  height: 500px; }
+
 .btn-important {
   outline: none;
   padding: 8px 20px;
@@ -301,5 +304,8 @@ main {
 
 #map {
   height: 500px; }
+
+.modal-sm {
+  color: black; }
 
 /*# sourceMappingURL=style.css.map */

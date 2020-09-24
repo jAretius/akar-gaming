@@ -33,6 +33,17 @@ router.get('/:id/reviews', (req, res, next) => {
         })
 })
 
+//User colleccions
+router.post("/add/:gameId", isLoggedIn, (req, res, next) => {
+    const id = req.params.gameId
+    const { colleccion } = req.body
+    console.log(id)
+
+    User.findByIdAndUpdate(req.user.id, { $push: { [colleccion]: id } })
+        .then(() => res.send('MIRACLE!'))
+        .catch(err => next(err))
+})
+
 // UPDATE (Edit my profile)
 router.get('/settings', isLoggedIn, (req, res) => res.redirect(`/users/${req.user.username}/settings`))
 
@@ -109,7 +120,6 @@ router.get('/:username', isLoggedIn, (req, res) => {
 
     }
 })
-
 
 
 module.exports = router

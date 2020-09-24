@@ -11,6 +11,57 @@
                     <p>{{company.name}}</p>
                     <a href="/companies/{{company.id}}"><img src="{{company.logo}}" alt="{{company.name}} logo"></a>
                 </div>
+
+                <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Add to your Collections</button>
+                
+                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/users/add/{{id}}" method="POST">
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="colleccion-input" value="wantToPlay" name='colleccion'>
+                                        <label class="form-check-label" for="colleccion-input">Want to Play</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="colleccion-input" value="playing" name='colleccion'>
+                                        <label class="form-check-label" for="colleccion-input">Playing</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="colleccion-input" value="beaten" name='colleccion'>
+                                        <label class="form-check-label" for="colleccion-input">Beaten</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="colleccion-input" value="completed" name='colleccion'>
+                                        <label class="form-check-label" for="colleccion-input">Completed</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="colleccion-input" value="shelved" name='colleccion'>
+                                        <label class="form-check-label" for="colleccion-input">Shelved</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="colleccion-input" value="abandoned" name='colleccion'>
+                                        <label class="form-check-label" for="colleccion-input">Abandoned</label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-dark">Add to Collection</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="game-details-lists">
                     <ul>
                         {{#each directors}}
