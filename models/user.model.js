@@ -38,14 +38,29 @@ const userSchema = new Schema({
         default: 'https://t3.ftcdn.net/jpg/00/64/67/80/240_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg'
 
     },
-    colleccion: {
-
+    wantToPlay: {
         type: [Schema.Types.ObjectId],
         ref: 'game',
-        state: {
-            type: [String],
-            enum: ['Want to Play', 'Playing', 'Beaten', 'Completed', 'Shelved', 'Abandoned']
-        }
+    },
+    playing: {
+        type: [Schema.Types.ObjectId],
+        ref: 'game'
+    },
+    beaten: {
+        type: [Schema.Types.ObjectId],
+        ref: 'game'
+    },
+    completed: {
+        type: [Schema.Types.ObjectId],
+        ref: 'game'
+    },
+    shelved: {
+        type: [Schema.Types.ObjectId],
+        ref: 'game'
+    },
+    abandoned: {
+        type: [Schema.Types.ObjectId],
+        ref: 'game'
     },
     following: {
 
