@@ -6,7 +6,7 @@ const domReferenceObject = document.querySelector('.info-card')
 const searchInput = document.querySelector('.search-input')
 
 // We show the results screen
-document.querySelector('.search-input').addEventListener('click', function (event) {
+document.querySelector('.search-input').addEventListener('focusin', function (event) {
 
     document.querySelector('.search-screen').style.opacity = 100
     document.querySelector('.search-screen').style.pointerEvents = 'auto';
@@ -30,13 +30,14 @@ document.querySelector('.search-input').addEventListener('keyup', function (even
 
 function searchAll() {
 
-    cleanScreen()
-
     if (searchInput.value !== '') {
 
         searchUsers()
 
         searchGames()
+    } else {
+
+        cleanScreen()
     }
 }
 
@@ -44,6 +45,8 @@ function searchUsers() {
 
     searchAPI.searchUsers(searchInput.value)
         .then(devuelto => {
+
+            cleanUsers()
 
             devuelto.data.forEach(elm => {
 
@@ -59,6 +62,8 @@ function searchGames() {
 
     searchAPI.searchGames(searchInput.value)
         .then(devuelto => {
+
+            cleanGames()
 
             devuelto.data.forEach(elm => {
 
@@ -77,6 +82,22 @@ function cleanScreen() {
 
         usersParentObject.removeChild(usersParentObject.lastChild)
     }
+
+    for (let i = gamesParentObject.childNodes.length; i > 0; i--) {
+
+        gamesParentObject.removeChild(gamesParentObject.lastChild)
+    }
+}
+
+function cleanUsers() {
+
+    for (let i = usersParentObject.childNodes.length; i > 0; i--) {
+
+        usersParentObject.removeChild(usersParentObject.lastChild)
+    }
+}
+
+function cleanGames() {
 
     for (let i = gamesParentObject.childNodes.length; i > 0; i--) {
 

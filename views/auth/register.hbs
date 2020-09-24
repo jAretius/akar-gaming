@@ -1,34 +1,35 @@
-<form action='/register' method="POST">
+<section class="register">
 
-    <div class='form-group'>
+    <form action='/register' method="POST">
 
-        <label for='username'>Username</label>
-        <input id='username' type='text' class='form-control' placeholder='Username' name='username'>
+        <div class='form-group'>
 
-    </div>
+            <input id='username' type='text' placeholder='Username' name='username'>
 
-    <div class='form-group'>
+        </div>
 
-        <label for='email-address'>Email</label>
-        <input id='email-address' type='email' class='form-control' placeholder='Email' name='email'>
+        <div class='form-group'>
 
-    </div>
+            <input id='email-address' type='email' placeholder='Email' name='email'>
 
-    <div class='form-group'>
+        </div>
 
-        <label for='pass'>Password</label>
-        <input id='pass' type='password' class='form-control' placeholder='Password' name='password'>
+        <div class='form-group'>
 
-    </div>
+            <input id='pass' type='password' placeholder='Password' name='password'>
 
-    {{#if errorMessage}}
+        </div>
 
-    <div class="alert alert-danger" role="alert">
-        {{errorMessage}}
-    </div>
+        {{#if errorMessage}}
 
-    {{/if}}
+        <div class="alert alert-danger" role="alert">
+            {{errorMessage}}
+        </div>
 
-    <button type='submit' class='btn btn-primary'>Submit</button>
+        {{/if}}
 
-</form>
+        <button type='submit' class='btn-secondary'>Submit</button>
+
+    </form>
+
+</section>

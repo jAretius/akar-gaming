@@ -61,7 +61,7 @@ const registerUser = () => {
 const isLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.redirect('/login')
 
 // Endpoints
-router.get('/', (req, res) => req.user ? res.redirect('/users/home') : res.render('index'))
+router.get('/', (req, res) => res.render('index'))
 
 // AUTH
 

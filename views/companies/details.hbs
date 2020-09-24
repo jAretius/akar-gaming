@@ -1,19 +1,23 @@
-<div class="company-details">
-    <h2>{{name}}</h2><br>
-    <div class="company-details-container">
-        <article>{{description}}</article><br>
-        <img src="{{logo}}" alt="{{name}} logo"><br><br>
+<section class="company-details">
+
+    <div class="company-details">
+        <h2>{{name}}</h2><br>
+        <div class="company-details-container">
+            <article>{{description}}</article><br>
+            <img src="{{logo}}" alt="{{name}} logo"><br><br>
             <a href="{{website}}" class="btn btn-dark">Company's website</a><br>
             <a href="/companies/related?id={{_id}}" class="btn btn-dark">Related Games</a><br>
-        <div class="">
-            <a class="btn btn-dark" href="/companies/{{id}}/newArticle">Write an article</a>
-            <a class="btn btn-dark" href="/companies/{{id}}/articles">News and Reviews</a>
-        </div>
-    </div><br><br>
+            <div class="">
+                <a class="btn btn-dark" href="/companies/{{id}}/newArticle">Write an article</a>
+                <a class="btn btn-dark" href="/companies/{{id}}/articles">News and Reviews</a>
+            </div>
+        </div><br><br>
 
-    <div class="buttons">
-        <a href="/companies/edit?id={{_id}}" class="btn btn-dark">Update</a>
-        <a href="/companies/delete?id={{_id}}" class="btn btn-dark">Delete</a>
-        <a href="/companies" class="btn btn-dark">Go Back</a>
+        <div class="buttons">
+            <a href="/companies/edit?id={{_id}}" class="btn btn-dark">Update</a>
+            <a href="/companies/delete?id={{_id}}" class="btn btn-dark">Delete</a>
+            <a href="/companies" class="btn btn-dark">Go Back</a>
+        </div>
     </div>
-</div>
+
+</section>

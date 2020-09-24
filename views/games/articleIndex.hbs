@@ -1,9 +1,13 @@
-<div class="gameArticles">
-    {{#each articles}}
+<section class="game-article-index">
+
+    <div class="gameArticles">
+        {{#each articles}}
         <p>{{creatorId.username}}</p>
         <p>{{text}}</p>
         <a href="/articles/delete?id={{_id}}" class="btn btn-dark">Delete</a>
         <a href="/articles/edit?id={{_id}}" class="btn btn-dark">Edit</a>
         <hr>
-    {{/each}}
-</div>
+        {{/each}}
+    </div>
+
+</section>

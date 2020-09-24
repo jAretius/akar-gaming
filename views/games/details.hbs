@@ -1,36 +1,39 @@
-<div class="game-details">
-    <h2>{{title}}</h2>
+<section class="games-details">
 
-    <div class="game-hero">
-        <img src="{{image}}" alt="{{title}} image">
-        <div class="game-hero-container">
-            <article>{{description}}</article>
-            <p>Price: <span>{{price}}</span></p>
-            <div class="game-devs">
-                <div>
-                    <p>{{company.name}}</p>
-                    <a href="/companies/{{company.id}}"><img src="{{company.logo}}" alt="{{company.name}} logo"></a>
-                </div>
-                <div class="game-details-lists">
-                    <ul>
-                        {{#each directors}}
+    <div class="game-details">
+        <h2>{{title}}</h2>
+
+        <div class="game-hero">
+            <img src="{{image}}" alt="{{title}} image">
+            <div class="game-hero-container">
+                <article>{{description}}</article>
+                <p>Price: <span>{{price}}</span></p>
+                <div class="game-devs">
+                    <div>
+                        <p>{{company.name}}</p>
+                        <a href="/companies/{{company.id}}"><img src="{{company.logo}}" alt="{{company.name}} logo"></a>
+                    </div>
+                    <div class="game-details-lists">
+                        <ul>
+                            {{#each directors}}
                             <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
-                    <ul>
-                        {{#each platforms}}
+                            {{/each}}
+                        </ul>
+                        <ul>
+                            {{#each platforms}}
                             <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <a class="btn btn-dark" href="/games/{{id}}/newArticle">Write an article</a>
+                    <a class="btn btn-dark" href="/games/{{id}}/articles">News and Reviews</a>
                 </div>
-                <a class="btn btn-dark" href="/games/{{id}}/newArticle">Write an article</a>
-                <a class="btn btn-dark" href="/games/{{id}}/articles">News and Reviews</a>
             </div>
         </div>
-    </div>
 
         <iframe width="560" height="315" src="{{trailer}}" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"allowfullscreen></iframe>
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
 
         <div class="game-details-buttons">
             <a href="/games/edit?id={{_id}}" class="btn btn-dark">Update</a>
@@ -38,4 +41,6 @@
             <a href="/games" class="btn btn-dark">Go Back</a>
         </div>
 
-</div>
+    </div>
+
+</section>

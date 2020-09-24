@@ -1,14 +1,18 @@
-<div class="event-index">
-    <h2>These are the events in the website</h2>
+<section class="events">
 
-    <ul class="company-list">
-        {{#each events}}
-        <li class="company-li">
-            <h3>{{name}}</h3>
-            <label>Attendants:</label><span>{{attendants.length}}</span>
-            <a class="btn btn-dark" href="/events/{{_id}}">Details</a>
-        </li>
-        <hr>
-        {{/each}}
-    </ul>
-</div>
+    <div class="event-index">
+        <h2>These are the events in the website</h2>
+
+        <ul class="company-list">
+            {{#each events}}
+            <li class="company-li">
+                <h3>{{name}}</h3>
+                <label>Attendants:</label><span>{{attendants.length}}</span>
+                <a class="btn btn-dark" href="/events/{{_id}}">Details</a>
+            </li>
+            <hr>
+            {{/each}}
+        </ul>
+    </div>
+
+</section>
