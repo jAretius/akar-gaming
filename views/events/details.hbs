@@ -1,20 +1,26 @@
 <section class="event-details">
 
     <div class="event-details">
-        <h2>{{name}}</h2><br>
+        <h2>{{eventDetailedname}}</h2><br>
         <div class="event-details-container">
-            <p>{{formattedDate}}</p>
-            <article>{{description}}</article><br>
-            <label>Attendants:</label><span>{{attendants.length}}</span>
+            <p>{{eventDetailedformattedDate}}</p>
+            <article>{{eventDetaileddescription}}</article><br>
+
             <div id="map"></div><br>
-            <a class="btn btn-dark" href="/events/attend/{{_id}}">Attend to this Event</a>
-        </div><br><br>
+
+        </div>
 
         <div class="buttons">
+
+            {{#if isAuthorized}}
+
             <a href="/events/edit?id={{_id}}" class="btn btn-dark">Edit</a>
             <a href="/events/delete?id={{_id}}" class="btn btn-dark">Delete</a>
-            <a href="/events" class="btn btn-dark">Go Back</a>
+
+            {{/if}}
+
+            <a href="/events" class="btn-rounded btn-secondary">Go Back</a>
+
         </div>
     </div>
-
 </section>

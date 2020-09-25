@@ -39,7 +39,7 @@ router.get("/", (req, res, next) => {
 //Company related Games
 router.get("/related", (req, res, next) => {
 
-    Game.find({ company: req.query.id }, { title: 1, image: 1 })
+    Game.find({ company: req.query.id }, { title: 1, image: 1, price: 1 })
         .then(games => {
 
             console.log(req.query.id)
@@ -89,7 +89,13 @@ router.get("/:companyId", (req, res, next) => {
     const id = req.params.companyId
 
     Company.findById(id)
-        .then(companyDetails => res.render("companies/details", companyDetails))
+        .then(companyDetails => {
+
+            let isAdmin
+            req.user.role === 'admin' || req.user.role === 'editor' ? isAdmin = true : isAdmin = false
+
+            res.render("companies/details", { companyDetails, isAdmin })
+        })
         .catch(err => next(err))
 })
 
@@ -115,9 +121,9 @@ router.get("/:companyId/newArticle", (req, res, next) => {
 })
 
 router.post("/:companyId/newArticle", (req, res, next) => {
-    const { text, creatorId, companyId, type } = req.body
+    const { text, creatorId, companyId } = req.body
 
-    Article.create({ text, creatorId, companyId, type })
+    Article.create({ text, creatorId, companyId })
         .then(() => res.redirect("/companies"))
         .catch(err => next(new Error(err)))
 })

@@ -4,7 +4,7 @@ $hover-color: rgb(22, 27, 43);
 $main-text-color: white;
 $secondary-text-color: grey;
 
-$error-color: red;
+$error-color: rgb(238, 49, 49);
 
 // User collection colors
 $want: rgb(47, 182, 148);
@@ -114,16 +114,34 @@ section{
   color: $main-color
 }
 
+.btn-default{
+
+  border: solid 1px $main-text-color;
+  
+  background-color: $main-text-color;
+  color: $main-color
+}
+
+.btn-default:hover{
+
+  color: $main-color;
+  background-color: lime;
+  border-color: lime;
+}
+
 .btn-secondary{
 
   border: solid 1px $main-text-color;
   
   background-color: $main-color;
-  color: $main-text-color
+  color: $main-text-color;
+
+  transition: none;
 }
 
 .btn-secondary:hover{
 
+  //background-color: $main-text-color;
   background-color: $main-text-color;
 
   color: $main-color
@@ -131,13 +149,14 @@ section{
 
 .btn-red{
 
-  border: solid 1px $error-color;
+  border: solid 1px $main-text-color;
   background-color: $main-color;
   color: $main-text-color;
 }
 .btn-red:hover{
 
   background-color: $error-color;
+  border-color: $error-color;
   color: $main-color;
 }
 
@@ -484,7 +503,7 @@ main {
   
           height: 100%;
   
-          a{
+          div{
   
             width: 90px;
             height: 75px;
@@ -665,7 +684,7 @@ main {
             margin-bottom: 30px;
           }
 
-          .btn-red{
+          .cancel{
 
             display: inline-block;  
             padding: 8px 20px;
@@ -839,6 +858,12 @@ main {
   }
   
   .events{
+
+    h4{
+
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
 
     header{
 

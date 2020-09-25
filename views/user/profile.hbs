@@ -68,20 +68,20 @@
 
             <div class="row justify-content-around justify-content-md-end align-items-end">
 
-                <a class="played d-flex flex-column justify-content-center align-items-center" href='#'>
+                <div class="played d-flex flex-column justify-content-center align-items-center" href='#'>
                     <h2>0</h2>
                     <p>Played</p>
-                </a>
+                </div>
 
-                <a class="followers d-flex flex-column justify-content-center align-items-center" href='#'>
+                <div class="followers d-flex flex-column justify-content-center align-items-center">
                     <h2 id='followers-text'>{{followers}}</h2>
                     <p>Followers</p>
-                </a>
+                </div>
 
-                <a class="following d-flex flex-column justify-content-center align-items-center" href='#'>
+                <div class="following d-flex flex-column justify-content-center align-items-center">
                     <h2>{{matchedUser.following.length}}</h2>
                     <p>Following</p>
-                </a>
+                </div>
 
             </div>
 
@@ -93,16 +93,8 @@
 
         <div class="options col-md-6">
 
-            <a href="#">
-                <h2>Activity</h2>
-            </a>
-
             <a href="/users/{{matchedUser.id}}/reviews">
                 <h2>Reviews</h2>
-            </a>
-
-            <a href="#">
-                <h2>Lists</h2>
             </a>
 
         </div>

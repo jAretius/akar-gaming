@@ -54,22 +54,34 @@ section {
   background-color: lime;
   color: #040a1b; }
 
+.btn-default {
+  border: solid 1px white;
+  background-color: white;
+  color: #040a1b; }
+
+.btn-default:hover {
+  color: #040a1b;
+  background-color: lime;
+  border-color: lime; }
+
 .btn-secondary {
   border: solid 1px white;
   background-color: #040a1b;
-  color: white; }
+  color: white;
+  transition: none; }
 
 .btn-secondary:hover {
   background-color: white;
   color: #040a1b; }
 
 .btn-red {
-  border: solid 1px red;
+  border: solid 1px white;
   background-color: #040a1b;
   color: white; }
 
 .btn-red:hover {
-  background-color: red;
+  background-color: #ee3131;
+  border-color: #ee3131;
   color: #040a1b; }
 
 .main-header {
@@ -232,16 +244,16 @@ main {
         display: inline-block; }
     main .profile .header .social .row {
       height: 100%; }
-      main .profile .header .social .row a {
+      main .profile .header .social .row div {
         width: 90px;
         height: 75px;
         margin: 0 10px;
         margin-bottom: 15px;
         border-radius: 8px; }
-        main .profile .header .social .row a h2, main .profile .header .social .row a p {
+        main .profile .header .social .row div h2, main .profile .header .social .row div p {
           text-align: center;
           margin-bottom: 0; }
-        main .profile .header .social .row a p {
+        main .profile .header .social .row div p {
           text-transform: uppercase;
           font-size: .7em; }
       main .profile .header .social .row a:hover {
@@ -304,7 +316,7 @@ main {
           height: 100%; }
   main .settings .edition .form form .email {
     margin-bottom: 30px; }
-  main .settings .edition .form form .btn-red {
+  main .settings .edition .form form .cancel {
     display: inline-block;
     padding: 8px 20px;
     border-radius: 25px;
@@ -381,6 +393,9 @@ main {
     margin-left: 40px;
     margin-bottom: 0;
     font-size: 2.5em; }
+  main .events h4 {
+    font-size: 1.1em;
+    margin-bottom: 20px; }
   main .events header {
     margin-bottom: 50px; }
     main .events header svg {

@@ -1,22 +1,27 @@
 <section class="company-details">
 
     <div class="company-details">
-        <h2>{{name}}</h2><br>
+        <h2>{{companyDetails.name}}</h2><br>
         <div class="company-details-container">
-            <article>{{description}}</article><br>
-            <img src="{{logo}}" alt="{{name}} logo"><br><br>
-            <a href="{{website}}" class="btn btn-dark">Company's website</a><br>
-            <a href="/companies/related?id={{_id}}" class="btn btn-dark">Related Games</a><br>
+            <article>{{companyDetails.description}}</article><br>
+            <img src="{{companyDetails.logo}}" alt="{{companyDetails.name}} logo"><br><br>
+            <a href="{{companyDetails.website}}" class="btn-rounded btn-default">Company's website</a><br>
+            <a href="/companies/related?id={{companyDetails._id}}" class="btn-rounded btn-default">Related Games</a><br>
             <div class="">
-                <a class="btn btn-dark" href="/companies/{{id}}/newArticle">Write an article</a>
-                <a class="btn btn-dark" href="/companies/{{id}}/articles">News and Reviews</a>
+                <a class="btn-rounded btn-default" href="/companies/{{companyDetails.id}}/articles">Reviews</a>
+                <a class="btn-rounded btn-secondary" href="/companies/{{companyDetails.id}}/newArticle">Write new
+                    review</a>
             </div>
         </div><br><br>
 
         <div class="buttons">
-            <a href="/companies/edit?id={{_id}}" class="btn btn-dark">Update</a>
-            <a href="/companies/delete?id={{_id}}" class="btn btn-dark">Delete</a>
-            <a href="/companies" class="btn btn-dark">Go Back</a>
+
+            {{#if isAdmin}}
+            <a href="/companies/edit?id={{companyDetails._id}}" class="btn btn-dark">Update</a>
+            <a href="/companies/delete?id={{companyDetails._id}}" class="btn btn-dark">Delete</a>
+            {{/if}}
+
+            <a href="/companies" class="btn-rounded btn-secondary">Go Back</a>
         </div>
     </div>
 

@@ -43,27 +43,27 @@ router.get('/:id/reviews', (req, res, next) => {
             res.render('user/reviews', { matchedArticles })
         })
 })
-    
+
 //User colleccions
 router.post("/add/:gameId", isLoggedIn, (req, res, next) => {
     const id = req.params.gameId
     const { colleccion } = req.body
     console.log(id)
-    
+
     User.findByIdAndUpdate(req.user.id, { $push: { [colleccion]: id } })
-    .then(() => res.redirect('/games'))
-    .catch(err => next(err))
+        .then(() => res.redirect('/games'))
+        .catch(err => next(err))
 })
 
-//Want To Play index
+//Collections display
 router.get("/collection/:type", (req, res, next) => {
     const collection = req.params.type
 
-    User.findById(req.user.id, {[collection]: 1})
+    User.findById(req.user.id, { [collection]: 1 })
         .populate(`${collection}`)
-        .then(games => res.render("games/index", {games: games[`${collection}`]}))
+        .then(games => res.render("games/index", { games: games[`${collection}`] }))
         .catch(err => next(new Error(err)))
-    })
+})
 
 
 // UPDATE (Edit my profile)

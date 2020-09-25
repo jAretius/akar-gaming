@@ -111,9 +111,9 @@ router.get("/:gameId/newArticle", (req, res, next) => {
 })
 
 router.post("/:gameId/newArticle", (req, res, next) => {
-    const { text, creatorId, gameId, type } = req.body
+    const { text, creatorId, gameId } = req.body
 
-    Article.create({ text, creatorId, gameId, type })
+    Article.create({ text, creatorId, gameId })
         .then(createdArticle => {
 
             const creationDay = createdArticle.createdAt.getDate()

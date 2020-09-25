@@ -20,8 +20,8 @@
             {{#each events}}
             <li class="company-li">
                 <h3>{{name}}</h3>
-                <label>Attendants:</label><span>{{attendants.length}}</span>
-                <a class="btn btn-dark" href="/events/{{_id}}">Details</a>
+                <h4>{{formattedDate}}</h4>
+                <a class="btn-rounded btn-secondary" href="/events/{{_id}}">Details</a>
             </li>
             <hr>
             {{/each}}

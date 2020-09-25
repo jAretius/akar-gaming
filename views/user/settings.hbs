@@ -10,7 +10,7 @@
 
                 <img src="{{user.profileImage}}" alt="{{user.username}} profile image">
 
-                <figure>
+                {{!-- <figure>
 
                     <div class="icon d-flex justify-content-center align-items-center">
 
@@ -24,7 +24,7 @@
 
                     </div>
 
-                </figure>
+                </figure> --}}
 
             </div>
 
@@ -55,9 +55,9 @@
 
                 {{/if}}
 
-                <button type='submit' class='btn-rounded btn-important'>Submit</button>
+                <button type='submit' class='btn-rounded btn-default'>Submit</button>
 
-                <a href='/users/home' class='btn-rounded btn-red'>Cancel</a>
+                <a href='/users/home' class='cancel btn-rounded btn-secondary'>Cancel</a>
 
             </form>
 

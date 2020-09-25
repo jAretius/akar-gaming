@@ -7,8 +7,7 @@
             <p>Price: <span>{{price}}</span></p>
             <div class="game-devs">
                 <div>
-                    <p>{{company.name}}</p>
-                    <a href="/companies/{{company.id}}"><img src="{{company.logo}}" alt="{{company.name}} logo"></a>
+                    <a href="/companies/{{company.id}}">{{company.name}}</a>
                 </div>
 
                 <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Add to your
@@ -81,8 +80,8 @@
                         {{/each}}
                     </ul>
                 </div>
-                <a class="btn btn-dark" href="/games/{{id}}/newArticle">Write an article</a>
-                <a class="btn btn-dark" href="/games/{{id}}/articles">News and Reviews</a>
+                <a class="btn btn-dark" href="/games/{{id}}/articles">Reviews</a>
+                <a class="btn btn-dark" href="/games/{{id}}/newArticle">Write new review</a>
             </div>
         </div>
     </div>
@@ -92,8 +91,14 @@
         allowfullscreen></iframe>
 
     <div class="game-details-buttons">
+
+        {{#if isAdmin}}
+
         <a href="/games/edit?id={{_id}}" class="btn btn-dark">Update</a>
         <a href="/games/delete?id={{_id}}" class="btn btn-dark">Delete</a>
+
+        {{/if}}
+
         <a href="/games" class="btn btn-dark">Go Back</a>
     </div>
 

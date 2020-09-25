@@ -3,6 +3,29 @@ const router = express.Router()
 
 const Event = require('../models/event.model')
 
+// Middlewares
+
+// Log
+const isLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.redirect('/login')
+
+// Roles management middlewares
+const checkPrivilege = (authRoles) => {
+
+    return (req, res, next) => {
+
+        if (authRoles.includes(req.user.role)) {
+
+            next()
+
+        } else {
+
+            req.session.errorMessage = 'Log in with a privilege role please'
+
+            res.redirect('/login')
+        }
+    }
+}
+
 //List events
 router.get("/", (req, res, next) => {
 
@@ -37,7 +60,7 @@ router.post("/new", (req, res, next) => {
 
 //Edit event
 router.get("/edit", (req, res, next) => {
-    
+
 
     Event.findById(req.query.id)
         .then(eventDetails => res.render("events/edit", eventDetails))
@@ -77,7 +100,13 @@ router.get("/:eventId", (req, res, next) => {
     const id = req.params.eventId
 
     Event.findById(id)
-        .then(eventDetails => res.render("events/details", eventDetails))
+        .then(eventDetails => {
+
+            let isAuthorized
+
+            req.user.role === 'admin' || req.user.role === 'editor' ? isAuthorized = true : isAuthorized = false
+            res.render("events/details", { eventDetails, isAuthorized })
+        })
         .catch(err => next(new Error(err)))
 })
 
@@ -88,13 +117,13 @@ router.put('/attend/:id', (req, res, next) => {
         .then(matchedEvent => {
 
             if (matchedEvent.length) {
-                
+
                 return Event.findByIdAndUpdate(req.params.id, { $pull: { attendants: req.user.id } })
-                
+
             }
-            
+
             return Event.findByIdAndUpdate(req.params.id, { $push: { attendants: req.user.id } })
-            
+
         })
         .then(() => res.send('Success'))
         .catch(err => next(new Error(err)))
