@@ -1,10 +1,11 @@
 const express = require('express')
 const { get } = require('mongoose')
-const { findByIdAndUpdate } = require('../models/user.model')
+const { findByIdAndUpdate, getMaxListeners } = require('../models/user.model')
 const router = express.Router()
 
 const User = require('../models/user.model')
 const Article = require("../models/article.model")
+const Game = require("../models/game.model")
 
 // Middleware that checks that user is logged in
 const isLoggedIn = (req, res, next) => {
@@ -42,17 +43,28 @@ router.get('/:id/reviews', (req, res, next) => {
             res.render('user/reviews', { matchedArticles })
         })
 })
-
+    
 //User colleccions
 router.post("/add/:gameId", isLoggedIn, (req, res, next) => {
     const id = req.params.gameId
     const { colleccion } = req.body
     console.log(id)
-
+    
     User.findByIdAndUpdate(req.user.id, { $push: { [colleccion]: id } })
-        .then(() => res.send('MIRACLE!'))
-        .catch(err => next(err))
+    .then(() => res.redirect('/games'))
+    .catch(err => next(err))
 })
+
+//Want To Play index
+router.get("/collection/:type", (req, res, next) => {
+    const collection = req.params.type
+
+    User.findById(req.user.id, {[collection]: 1})
+        .populate(`${collection}`)
+        .then(games => res.render("games/index", {games: games[`${collection}`]}))
+        .catch(err => next(new Error(err)))
+    })
+
 
 // UPDATE (Edit my profile)
 router.get('/settings', isLoggedIn, (req, res) => res.redirect(`/users/${req.user.username}/settings`))
@@ -86,7 +98,7 @@ router.post('/:id/settings', isLoggedIn, (req, res, next) => {
 })
 
 // READ
-router.get('/:username', isLoggedIn, (req, res) => {
+router.get('/:username', isLoggedIn, (req, res, next) => {
 
     // The logged user is the owner of the visited profile
     if (req.params.username === req.user.username) {
