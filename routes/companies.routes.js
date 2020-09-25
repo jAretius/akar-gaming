@@ -85,14 +85,14 @@ router.get("/delete", isLoggedIn, checkPrivilege(['admin']), (req, res, next) =>
 })
 
 //Company details
-router.get("/:companyId", (req, res, next) => {
+router.get("/:companyId", isLoggedIn, (req, res, next) => {
     const id = req.params.companyId
 
     Company.findById(id)
         .then(companyDetails => {
 
             let isAdmin
-            req.user.role === 'admin' || req.user.role === 'editor' ? isAdmin = true : isAdmin = false
+            req.user.role === 'admin' ? isAdmin = true : isAdmin = false
 
             res.render("companies/details", { companyDetails, isAdmin })
         })

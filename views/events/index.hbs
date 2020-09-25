@@ -12,6 +12,10 @@
 
         <h2 class='title'>Events</h2>
 
+        {{#if isAdmin}}
+        <a class='btn btn-dark' style='margin-left:4y0px' href="/events/new">Create new event</a>
+        {{/if}}
+
     </header>
 
     <div class="event-index">

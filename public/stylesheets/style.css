@@ -132,7 +132,7 @@ main {
     top: 100px;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 100px);
     transition: all;
     transition-duration: .5s; }
     main .search-screen h2 {
@@ -157,14 +157,13 @@ main {
         size: cover; }
   main .main-home .hero h1 {
     font-weight: 900;
-    font-size: 6em;
-    max-width: 800px;
+    font-size: 5em;
     margin-bottom: .8em; }
   main .main-home .hero h2 {
-    font-size: 3.2em;
+    font-size: 2.5em;
     margin-bottom: .5em; }
   main .main-home .hero p {
-    font-size: 2em;
+    font-size: 1.5em;
     margin-bottom: 1.3em; }
   main .main-home .hero .btn-important {
     height: 50px;
@@ -384,6 +383,10 @@ main {
       transform: scale(1.07); }
     main .games .game-list-view .game-card h3 {
       text-align: center; }
+  main .games-details .new-article-btn, main .games-details .all-articles-btn {
+    margin: 0 10px; }
+  main .games-details .video-container {
+    margin: 30px 0; }
   main .companies header {
     margin-bottom: 50px; }
     main .companies header svg {

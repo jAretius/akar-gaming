@@ -30,7 +30,13 @@ const checkPrivilege = (authRoles) => {
 router.get("/", (req, res, next) => {
 
     Event.find({})
-        .then(events => res.render("events/index", { events }))
+        .then(events => {
+
+            let isAdmin
+            req.user.role === 'admin' || req.user.role === 'editor' ? isAdmin = true : isAdmin = false
+
+            res.render("events/index", { events, isAdmin })
+        })
         .catch(err => next(err))
 })
 

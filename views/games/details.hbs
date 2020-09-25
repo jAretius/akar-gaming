@@ -1,17 +1,20 @@
 <section class="games-details">
 
     <div class="game-hero">
-        <img src="{{image}}" alt="{{title}} image">
+        <img src="{{gameDetails.image}}" alt="{{gameDetails.title}} image">
         <div class="game-hero-container">
-            <article>{{description}}</article>
-            <p>Price: <span>{{price}}</span></p>
+            <article>{{gameDetails.description}}</article>
+            <p style='color:rgb(255, 187, 0);font-weight:900;margin-top:20px'>Price: <span>{{gameDetails.price}}</span>
+                $</p>
             <div class="game-devs">
                 <div>
-                    <a href="/companies/{{company.id}}">{{company.name}}</a>
+
+                    <a style='font-weight:900' href="/companies/{{gameDetails.company.id}}">
+                        <p>{{gameDetails.company.name}}</p>
+                    </a>
                 </div>
 
-                <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Add to your
-                    Collections</button>
+
 
                 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
                     aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -70,36 +73,46 @@
 
                 <div class="game-details-lists">
                     <ul>
-                        {{#each directors}}
+                        {{#each gameDetails.directors}}
                         <li>{{this}}</li>
                         {{/each}}
                     </ul>
                     <ul>
-                        {{#each platforms}}
+                        {{#each gameDetails.platforms}}
                         <li>{{this}}</li>
                         {{/each}}
                     </ul>
                 </div>
-                <a class="btn btn-dark" href="/games/{{id}}/articles">Reviews</a>
-                <a class="btn btn-dark" href="/games/{{id}}/newArticle">Write new review</a>
+
+                <button class="btn-rounded btn-default" data-toggle="modal" data-target=".bs-example-modal-sm">Add to
+                    your
+                    Collections</button>
+
+                <a class="new-article-btn btn-rounded btn-secondary" href="/games/{{gameDetails.id}}/newArticle">Write
+                    an article</a>
+                <a class="all-articles-btn btn-rounded btn-secondary" href="/games/{{gameDetails.id}}/articles">News and
+                    Reviews</a>
+
             </div>
         </div>
     </div>
 
-    <iframe width="560" height="315" src="{{trailer}}" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+    <div class="video-container d-flex justify-content-center">
+
+        <iframe width="560" height="315" src="{{gameDetails.trailer}}" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+    </div>
 
     <div class="game-details-buttons">
 
         {{#if isAdmin}}
-
-        <a href="/games/edit?id={{_id}}" class="btn btn-dark">Update</a>
-        <a href="/games/delete?id={{_id}}" class="btn btn-dark">Delete</a>
-
+        <a href="/games/edit?id={{gameDetails._id}}" class="btn btn-dark">Update</a>
+        <a href="/games/delete?id={{gameDetails._id}}" class="btn btn-dark">Delete</a>
         {{/if}}
 
-        <a href="/games" class="btn btn-dark">Go Back</a>
+        <a href="/games" class="btn-rounded btn-secondary">Go Back</a>
     </div>
 
     </div>

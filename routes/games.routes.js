@@ -86,7 +86,13 @@ router.get("/:gameId", (req, res, next) => {
 
     Game.findById(id)
         .populate("company")
-        .then(gameDetails => res.render("games/details", gameDetails))
+        .then(gameDetails => {
+
+            let isAdmin
+            req.user.role === 'admin' ? isAdmin = true : isAdmin = false
+
+            res.render("games/details", { gameDetails, isAdmin })
+        })
         .catch(err => next(new Error(err)))
 })
 
