@@ -28,6 +28,8 @@ document.querySelector('.search-input').addEventListener('keyup', function (even
 
 })
 
+window.onload = () => cleanScreen()
+
 function searchAll() {
 
     if (searchInput.value !== '') {

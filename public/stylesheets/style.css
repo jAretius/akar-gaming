@@ -13,7 +13,7 @@ p {
 form {
   max-width: 500px;
   margin: 0 auto; }
-  form input {
+  form .input-rounded {
     height: 50px;
     border-radius: 25px;
     padding: 0 20px;
@@ -83,6 +83,8 @@ section {
     font-weight: 900;
     color: white;
     margin-right: 1em; }
+    .main-header .logo img {
+      height: 60px; }
   .main-header .logo:hover {
     text-decoration: none; }
   .main-header .btn-login:hover {
@@ -93,39 +95,6 @@ section {
     margin: 0 5px; }
   .main-header form {
     display: inline-block; }
-
-.search-screen {
-  pointer-events: none;
-  padding: 40px;
-  opacity: 0;
-  backdrop-filter: blur(100px);
-  background-color: rgba(4, 10, 27, 0.7);
-  position: absolute;
-  z-index: 1;
-  top: 100px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: all;
-  transition-duration: .5s; }
-  .search-screen h2 {
-    color: white; }
-  .search-screen hr {
-    border-top: solid 1px white;
-    margin-top: 30px; }
-  .search-screen div[class*='cards-container'] .info-card {
-    margin: 15px 0; }
-    .search-screen div[class*='cards-container'] .info-card a {
-      pointer-events: auto;
-      margin-left: 20px;
-      color: white;
-      text-decoration: none;
-      font-size: 1.3em; }
-    .search-screen div[class*='cards-container'] .info-card img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      size: cover; }
 
 main {
   max-width: 1280px;
@@ -140,6 +109,40 @@ main {
   main a, main a:hover {
     color: inherit;
     text-decoration: none; }
+  main .search-screen {
+    pointer-events: none;
+    padding: 40px;
+    opacity: 0;
+    backdrop-filter: blur(100px);
+    background-color: rgba(4, 10, 27, 0.7);
+    position: absolute;
+    z-index: 1;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all;
+    transition-duration: .5s; }
+    main .search-screen h2 {
+      color: white; }
+    main .search-screen hr {
+      border-top: solid 1px white;
+      margin-top: 30px; }
+    main .search-screen div[class*='cards-container'] .info-card {
+      margin: 15px 0; }
+      main .search-screen div[class*='cards-container'] .info-card a {
+        pointer-events: auto;
+        margin-left: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 1.3em; }
+      main .search-screen div[class*='cards-container'] .info-card a:hover {
+        filter: brightness(1.5); }
+      main .search-screen div[class*='cards-container'] .info-card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        size: cover; }
   main .main-home .hero h1 {
     font-weight: 900;
     font-size: 6em;
@@ -339,12 +342,54 @@ main {
               font-style: italic; }
         main .user-reviews div[class*='col'] .content .footer {
           padding-left: 20px; }
-  main .games .game-list-view .game-card a {
+  main .games header {
+    margin-bottom: 50px; }
+    main .games header svg {
+      width: 100px; }
+  main .games .title {
     display: inline-block;
-    max-width: 200px;
-    border-radius: 10px; }
-    main .games .game-list-view .game-card a img {
-      width: 100%; }
+    margin-left: 40px;
+    margin-bottom: 0;
+    font-size: 2.5em; }
+  main .games .game-list-view .bridge {
+    height: 100%;
+    width: 100%;
+    padding: 20px 0; }
+  main .games .game-list-view .game-card {
+    height: 100%;
+    width: 100%; }
+    main .games .game-list-view .game-card a {
+      display: inline-block;
+      max-width: 200px;
+      border-radius: 30px; }
+      main .games .game-list-view .game-card a img {
+        max-height: 220px;
+        border-radius: 30px;
+        margin-bottom: 20px;
+        transition: all;
+        transition-duration: .3s; }
+    main .games .game-list-view .game-card a:hover img {
+      transform: scale(1.07); }
+    main .games .game-list-view .game-card h3 {
+      text-align: center; }
+  main .companies header {
+    margin-bottom: 50px; }
+    main .companies header svg {
+      width: 80px; }
+  main .companies .title {
+    display: inline-block;
+    margin-left: 40px;
+    margin-bottom: 0;
+    font-size: 2.5em; }
+  main .events header {
+    margin-bottom: 50px; }
+    main .events header svg {
+      width: 70px; }
+  main .events .title {
+    display: inline-block;
+    margin-left: 40px;
+    margin-bottom: 0;
+    font-size: 2.5em; }
 
 @media (min-width: 768px) {
   main .profile .header .user-info .username {
@@ -356,27 +401,6 @@ main {
     display: inline-block; }
   main .profile .body .collection {
     width: 320px; } }
-
-.game-list-view {
-  color: white; }
-  .game-list-view .game-li {
-    width: 40%;
-    padding: 10px;
-    display: flex;
-    border: white solid 2px;
-    border-radius: 10px; }
-    .game-list-view .game-li h3 {
-      margin-left: 5px;
-      font-size: 3em; }
-    .game-list-view .game-li img {
-      width: 200px; }
-
-.game-details {
-  color: white;
-  margin: 20px; }
-  .game-details iframe {
-    width: 1000px;
-    height: 500px; }
 
 .game-hero {
   display: flex;

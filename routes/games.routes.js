@@ -32,7 +32,7 @@ const checkPrivilege = (authRoles) => {
 //Games list
 router.get("/", (req, res, next) => {
 
-    Game.find({}, { title: 1, image: 1 })
+    Game.find({}, { title: 1, image: 1, price: 1 })
         .then(games => res.render("games/index", { games }))
         .catch(err => next(new Error(err)))
 })

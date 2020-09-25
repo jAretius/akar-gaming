@@ -35,13 +35,15 @@
             <form action='/users/{{user.id}}/settings' method="POST">
                 <div class='form-group'>
 
-                    <input id='username' type='text' placeholder='Username' name='username' value={{user.username}}>
+                    <input class='input-rounded' id='username' type='text' placeholder='Username' name='username'
+                        value={{user.username}}>
 
                 </div>
 
                 <div class='email form-group'>
 
-                    <input id='email' type='email' placeholder='Email' name='email' value={{user.email}}>
+                    <input class='input-rounded' id='email' type='email' placeholder='Email' name='email'
+                        value={{user.email}}>
 
                 </div>
 

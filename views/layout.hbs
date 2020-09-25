@@ -10,11 +10,14 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 
   <script src="/javascripts/api-handler.js"></script>
@@ -24,69 +27,70 @@
 <body>
 
   <header class='main-header'>
-    <a class='logo' href="/">akar</a>
-    <a href='/login' class="btn-rounded btn-secondary">Log in</a>
-    {{!-- <a href='/logout' class="btn btn-dark">Log out</a> --}}
-    {{!-- <a href="/games/new" class="btn btn-dark">Create a Game</a>
-    <a href="/companies/new" class="btn btn-dark">Create a Company</a>
-    <a href="/events/new" class="btn btn-dark">Create an Event</a> --}}
+    <a class='logo' href="/"><img src="/images/akar-logo-green.png" alt="akar logo"></a>
+
+
 
     <form>
 
-      <input class='search-input' type='text' placeholder='Search'>
+      <input class='search-input input-rounded' type='text' placeholder='Search'>
 
     </form>
 
+    <a href='/login' class="btn-rounded btn-secondary">Log in</a>
+    <a href='/logout' class="btn-rounded btn-red">Sign out</a>
+
   </header>
 
-  <div class="search-screen">
 
-    <div class="row">
+  <main>
 
-      <div class="users col-12">
+    <div class="search-screen">
 
-        <h2>Users</h2>
+      <div class="row">
 
-        <div class="user-cards-container row justify-content-start">
+        <div class="users col-12">
 
-          <article class='info-card col-md-6 col-lg-4 col-xl-3 d-flex justify-content-start align-items-center'>
+          <h2>Users</h2>
 
-            <a id='image-link' href="#">
+          <div class="user-cards-container row justify-content-start">
 
-              <img id='profile-image' src="" alt="user image">
+            <article class='info-card col-md-6 col-lg-4 col-xl-3 d-flex justify-content-start align-items-center'>
 
-            </a>
+              <a id='image-link' href="#">
 
-            <a id='username' href='#'>Titulo</a>
+                <img id='profile-image' src="" alt="user image">
 
-          </article>
+              </a>
+
+              <a id='username' href='#'>Titulo</a>
+
+            </article>
+
+          </div>
 
         </div>
 
-      </div>
+        <div class="col-12">
 
-      <div class="col-12">
+          <hr>
 
-        <hr>
-
-      </div>
+        </div>
 
 
-      <div class="games col-12">
+        <div class="games col-12">
 
-        <h2>Games</h2>
+          <h2>Games</h2>
 
-        <div class="games-cards-container row justify-content-start">
+          <div class="games-cards-container row justify-content-start">
+
+          </div>
 
         </div>
 
       </div>
 
     </div>
-
-  </div>
-
-  <main>
 
     {{{body}}}
 

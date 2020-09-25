@@ -7,7 +7,17 @@ const User = require('../models/user.model')
 const Article = require("../models/article.model")
 
 // Middleware that checks that user is logged in
-const isLoggedIn = (req, res, next) => req.isAuthenticated() ? next() : res.redirect('/login')
+const isLoggedIn = (req, res, next) => {
+
+    if (req.isAuthenticated()) {
+
+        next()
+    } else {
+
+        req.session.errorMessage = 'Please Log in to access'
+        res.redirect('/login')
+    }
+}
 
 // READ (Profile view)
 
@@ -81,9 +91,11 @@ router.get('/:username', isLoggedIn, (req, res) => {
     // The logged user is the owner of the visited profile
     if (req.params.username === req.user.username) {
 
+
         // We find the followers of the user
         User.find({ following: req.user.id }, { _id: 1 })
             .then(followers => {
+                console.log('Yesssssa!!!')
 
                 res.render('user/profile', { matchedUser: req.user, loggedUser: req.user, isOwner: true, followers: followers.length })
             })

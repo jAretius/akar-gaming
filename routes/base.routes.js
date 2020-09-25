@@ -9,7 +9,6 @@ const bcryptSalt = 10
 
 //----- MIDDLEWARES -----
 
-// Register (middleware)
 const registerUser = () => {
 
     return (req, res, next) => {
@@ -17,39 +16,33 @@ const registerUser = () => {
         const { username, email, password } = req.body
 
         // Checks if username is available
-        User.find({ username })
-            .then(matchedUser => {
+        User.find({ $or: [{ username }, { email }] })
+            .then(userMatch => {
 
-                if (matchedUser.length) {
+                if (userMatch.length) {
 
-                    res.render('auth/register', { errorMessage: 'This username is already in use' })
+                    let errorMessage
+
+                    userMatch[0].username === username ? errorMessage = 'This username is already in use' : errorMessage = 'This email is already in use'
+
+                    res.render('auth/register', { errorMessage, user: req.user })
 
                     return
                 }
 
-                // Checks if email is available
-                User.find({ email })
-                    .then(matchedUser => {
+                const salt = bcrypt.genSaltSync(bcryptSalt)
+                const hash = bcrypt.hashSync(password, salt)
 
-                        if (matchedUser.length) {
+                return User.create({ username, email, password: hash })
 
-                            res.render('auth/register', { errorMessage: 'This email is already in use' })
+            })
+            .then((returned) => {
 
-                            return
-                        }
+                if (returned) {
 
-                        const salt = bcrypt.genSaltSync(bcryptSalt)
-
-                        const hash = bcrypt.hashSync(password, salt)
-
-                        User.create({ username, email, password: hash })
-                            .then(() => {
-                                console.log(req.body)
-                                delete req.body.email
-                                console.log(req.body)
-                                next()
-                            })
-                    })
+                    delete req.body.email
+                    next()
+                }
             })
             .catch(err => next(err))
 
@@ -83,7 +76,10 @@ router.post("/register", registerUser(), passport.authenticate("local", {
 
 
 // Login
-router.get('/login', (req, res, next) => res.render('auth/login', { errorMessage: req.session.errorMessage }))
+router.get('/login', (req, res, next) => {
+    res.render('auth/login', { errorMessage: req.session.errorMessage })
+    req.session.errorMessage = ''
+})
 
 // Login (post)
 router.post("/login", passport.authenticate("local", {
@@ -99,14 +95,6 @@ router.get('/logout', (req, res, next) => {
 
     req.logOut()
     res.redirect('/')
-
-})
-
-// Searcher
-router.post('/search', (req, res, next) => {
-
-    User.find({ username: req.body.username })
-        .then(matchedUser => res.render('search-results', { matchedUser }))
 
 })
 
